@@ -20,6 +20,8 @@ func _ready():
 	$VisualizadorEscudos.crear(escudos)
 	$TiempoEntreDisparos.start(cadenciaDisparo)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
