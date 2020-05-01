@@ -1,6 +1,9 @@
 extends Area2D
 
 #Variable salud que todos los enemigos del juego comparten
+
+
+
 var salud
 
 export(PackedScene) var powerUp
@@ -8,17 +11,20 @@ export(PackedScene) var powerUp
 var puedeDropear = false
 
 func _ready():
+	add_to_group("enemigos",true)
 	if powerUp != null:
 		puedeDropear = true
 
 func _process(_delta):
 	
 	#Cuando los enemigos salen del borde izquierdo de la pantalla se destruyen automaticamente
-	if position.x < -10:
+	if position.x < -100:
 		morir(true)
 
 #Esta funcion se encarga de reducir la salud si se recibe daño, y destruir al enemigo si llega a 0
 func perderSalud(dmg):
+	if position.x > 640:
+		return
 	salud -= dmg
 	if (salud <= 0):
 		morir(false)
@@ -30,7 +36,7 @@ func morir(justdestroy):
 	else:
 		if puedeDropear:
 			var numeroAleatorio = rand_range(0,10)
-			if numeroAleatorio <= 10:
+			if numeroAleatorio <= 2.5:
 				var nuevoPowerUp = powerUp.instance()
 				nuevoPowerUp.position = position
 				get_parent().call_deferred('add_child',nuevoPowerUp)

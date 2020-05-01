@@ -16,21 +16,6 @@ func process(delta):
 	fsm.padre.position.x -= 1
 	
 	if fsm.padre.position.x <= limite:
-		exit("Wait")
+		exit("Attack")
 	
 	return delta
-#
-#func physics_process(delta):
-#	return delta
-#
-#func input(event):
-#	return event
-#
-#func unhandled_input(event):
-#	return event
-#
-#func unhandled_key_input(event):
-#	return event
-#
-#func notification(what, flag = false):
-#	return [what, flag]

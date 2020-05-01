@@ -10,11 +10,18 @@ func enter():
 	
 	var timer = Timer.new()
 	timer.autostart = true
-	timer.wait_time = 3.0
+	timer.wait_time = 1.0
 	timer.connect("timeout",self,"_on_timer_timeout")
 	add_child(timer)
 
 func exit(next_state):
+	var contadores = get_child_count()
+	
+	if contadores > 0:
+		for n in get_children():
+			remove_child(n)
+			n.call_deferred('free')
+	
 	fsm.change_to(next_state)
 
 # Optional handler functions for game loop events
@@ -34,20 +41,4 @@ func process(delta):
 	return delta
 
 func _on_timer_timeout():
-	exit("Charge")
-
-#
-#func physics_process(delta):
-#	return delta
-#
-#func input(event):
-#	return event
-#
-#func unhandled_input(event):
-#	return event
-#
-#func unhandled_key_input(event):
-#	return event
-#
-#func notification(what, flag = false):
-#	return [what, flag]
+	exit("Attack2")

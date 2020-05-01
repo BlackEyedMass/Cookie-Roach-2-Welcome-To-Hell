@@ -2,10 +2,12 @@ extends Node
 
 #Carga la pantalla de Game Over
 export(PackedScene) var pantallaGameOver
+export(PackedScene) var advertenciaBoss
 
 #Array con todos los niveles del juego
 var listaNiveles = [ 
-	"TestWorld"
+	"TestWorld",
+	"Nivel1"
 ]
 
 #Variable que guarda el número en la lista del nivel actual
@@ -26,6 +28,10 @@ func terminarJuego():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	var nuevaPantallaGameOver = pantallaGameOver.instance()
 	add_child(nuevaPantallaGameOver)
+
+func advertenciaBoss():
+	var nuevaAdvertencia = advertenciaBoss.instance()
+	add_child(nuevaAdvertencia)
 
 #Función encargada de cambiar el nivel actual
 func cambiarNivel(nivel):

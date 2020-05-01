@@ -1,12 +1,13 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Objects/Jugador.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Objects/Enemigos/Nivel1Enemigo1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Enemigos/Proyectiles/ProyectilEnemigoSpreadDisparador.tscn" type="PackedScene" id=2]
 
 [node name="TestWorld" type="Node2D"]
 
 [node name="Jugador" parent="." instance=ExtResource( 1 )]
 position = Vector2( 137.507, 181.705 )
 
-[node name="Nivel1Enemigo1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 681.548, 180.93 )
+[node name="ProyectilEnemigoSpreadDisparador" parent="." instance=ExtResource( 2 )]
+position = Vector2( 417.431, 181.705 )
+rotation = -3.92699
