@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/Enemigos/spr_enemigo_prueba.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Nivel1Boss/Nivel1BossControl.gd" type="Script" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Scripts/Nivel1Boss/Nivel1BossEstadoAttack2Setup.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/Nivel1Boss/Nivel1BossEstadoAttack2.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/Nivel1Boss/Nivel1BossEstadoAttack1.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Nivel1Boss/Nivel1BossEstadoAttack3.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Nivel1Boss/Nivel1BossEstadoAttack3Setup.gd" type="Script" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 35.9139, 35.9976 )
@@ -43,3 +45,9 @@ script = ExtResource( 8 )
 
 [node name="Attack2Exit" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
+
+[node name="Attack3Setup" type="Node" parent="StateMachine"]
+script = ExtResource( 11 )
+
+[node name="Attack3" type="Node" parent="StateMachine"]
+script = ExtResource( 10 )

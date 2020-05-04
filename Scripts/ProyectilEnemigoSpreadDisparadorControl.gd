@@ -11,6 +11,9 @@ var repeticiones
 var anguloInicial
 var anguloFinal
 
+func _ready():
+	start(-225,-135,12)
+
 func start(ani,anf,reps):
 	
 	rotation_degrees = ani

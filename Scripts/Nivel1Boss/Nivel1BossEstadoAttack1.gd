@@ -24,7 +24,7 @@ func enter():
 	
 	var timerAtaque = Timer.new()
 	timerAtaque.autostart = true
-	timerAtaque.wait_time = 3
+	timerAtaque.wait_time = 1
 	timerAtaque.connect("timeout",self,"_on_timerAtaque_timeout")
 	add_child(timerAtaque)
 
@@ -55,4 +55,4 @@ func _on_timerDisparos_timeout():
 	nuevoProyectil.start(fsm.padre.position,velocidadDisparo)
 
 func _on_timerAtaque_timeout():
-	exit("Attack2Setup")
+	exit("Attack3Setup")
