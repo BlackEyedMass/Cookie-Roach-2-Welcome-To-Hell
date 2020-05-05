@@ -10,8 +10,11 @@ func start(pos,vel):
 	velocidad = vel
 
 func _process(_delta):
-	position.x -= velocidad
-	rotate(-0.1)
+	if velocidad == null:
+		return
+	else:
+		position.x -= velocidad
+		rotate(-0.1)
 	
 	if (global_position.x < -20):
 		destruir()

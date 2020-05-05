@@ -8,7 +8,6 @@ export(int) var velocidad
 func _ready():
 	salud = 3
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	position.x -= velocidad

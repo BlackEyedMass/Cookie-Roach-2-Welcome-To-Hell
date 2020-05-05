@@ -7,7 +7,7 @@
 [ext_resource path="res://Sprites/Jugador/spr_jugador_escudo.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32.0767, 16.1119 )
+extents = Vector2( 22.1818, 10.7863 )
 
 [node name="Jugador" type="Area2D" groups=[
 "jugador",
@@ -20,6 +20,7 @@ cadenciaDisparo = 1.0
 damage = 1.0
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

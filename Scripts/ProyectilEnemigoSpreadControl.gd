@@ -1,4 +1,4 @@
-extends Area2D
+extends "res://Scripts/Enemigo.gd"
 
 var direccion = Vector2()
 var velocidad = 5
@@ -16,3 +16,5 @@ func start(dirx,diry):
 func _process(delta):
 	var movimiento = direccion * velocidad
 	global_position += movimiento
+	
+	rotate(-0.1)

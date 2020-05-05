@@ -35,9 +35,8 @@ func morir(justdestroy):
 		call_deferred('free')
 	else:
 		if puedeDropear:
-			var numeroAleatorio = rand_range(0,10)
-			if numeroAleatorio <= 2.5:
-				var nuevoPowerUp = powerUp.instance()
-				nuevoPowerUp.position = position
-				get_parent().call_deferred('add_child',nuevoPowerUp)
+			var nuevoPowerUp = powerUp.instance()
+			nuevoPowerUp.position = position
+			get_parent().call_deferred('add_child',nuevoPowerUp)
+				
 		call_deferred('free')

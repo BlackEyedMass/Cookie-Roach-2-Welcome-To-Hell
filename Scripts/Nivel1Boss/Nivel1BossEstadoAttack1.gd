@@ -8,14 +8,26 @@ var limiteInferior = 310
 var velocidad = 2
 var velocidadDisparo = 2
 
+var agresividad
+
 export(PackedScene) var proyectil
 
 export(Vector2) var cadenciaDisparo
 
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func enter():
+	
+	var direccionInicial = randf()
+	
+	if direccionInicial > 0.5:
+		velocidad *= 1
+	else:
+		velocidad *= -1
+	
+	agresividad = fsm.padre.esperaEntreAtaques
+	
 	var timerDisparos = Timer.new()
 	timerDisparos.autostart = true
 	timerDisparos.wait_time = rand_range(cadenciaDisparo.x,cadenciaDisparo.y)
@@ -24,7 +36,7 @@ func enter():
 	
 	var timerAtaque = Timer.new()
 	timerAtaque.autostart = true
-	timerAtaque.wait_time = 1
+	timerAtaque.wait_time = agresividad
 	timerAtaque.connect("timeout",self,"_on_timerAtaque_timeout")
 	add_child(timerAtaque)
 
@@ -43,7 +55,7 @@ func process(delta):
 	# Add handler code here
 	
 	fsm.padre.position.y += velocidad
-
+	
 	if (fsm.padre.position.y <= limiteSuperior || fsm.padre.position.y >= limiteInferior):
 		velocidad *= -1
 	
@@ -55,4 +67,9 @@ func _on_timerDisparos_timeout():
 	nuevoProyectil.start(fsm.padre.position,velocidadDisparo)
 
 func _on_timerAtaque_timeout():
-	exit("Attack3Setup")
+	var numeroAleatorio = randf()
+	
+	if numeroAleatorio > 0.5:
+		exit("Attack2Setup")
+	else:
+		exit("Attack3Setup")

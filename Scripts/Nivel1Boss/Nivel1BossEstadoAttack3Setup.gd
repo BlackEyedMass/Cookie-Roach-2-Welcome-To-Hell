@@ -23,4 +23,7 @@ func process(delta):
 	
 	fsm.padre.position.y = movimiento.y
 	
+	if round(fsm.padre.position.y) == 180:
+		exit("Attack3")
+	
 	return delta

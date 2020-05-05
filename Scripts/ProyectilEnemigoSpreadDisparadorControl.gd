@@ -12,9 +12,11 @@ var anguloInicial
 var anguloFinal
 
 func _ready():
-	start(-225,-135,12)
+	pass
 
-func start(ani,anf,reps):
+func start(ani,anf,reps,posx,posy):
+	
+	position = Vector2(posx,posy)
 	
 	rotation_degrees = ani
 	
@@ -23,12 +25,13 @@ func start(ani,anf,reps):
 		posicionB = $Position2D.global_position
 	
 		posicionC = (posicionB - posicionA).normalized()
-		print(posicionC)
 		
 		var nuevoProyectil = proyectil.instance()
 		nuevoProyectil.start(posicionC.x,posicionC.y)
 		add_child(nuevoProyectil)
 		
 		rotation_degrees += reps
+	
+	#call_deferred('free')
 
 

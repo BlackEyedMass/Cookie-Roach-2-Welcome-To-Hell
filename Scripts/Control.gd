@@ -16,7 +16,7 @@ var nivelActual
 func _ready():
 	randomize()
 	#Al iniciar el juego carga el primer nivel en la lista
-	cambiarNivel(0)
+	cambiarNivel(1)
 
 func _input(event):
 	#(DEBUG) Botón que libera el mouse automáticamente
