@@ -16,7 +16,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 35.9139, 35.9976 )
 
-[node name="Nivel1Boss" type="Area2D"]
+[node name="Nivel1Boss" type="Area2D" groups=[
+"bosses",
+]]
 script = ExtResource( 2 )
 powerUp = ExtResource( 6 )
 

@@ -5,18 +5,23 @@ export(PackedScene) var pantallaGameOver
 export(PackedScene) var advertenciaBoss
 
 #Array con todos los niveles del juego
-var listaNiveles = [ 
-	"TestWorld",
-	"Nivel1"
+var listaNiveles = [
+	"AvisoPrealpha",#0
+	"PantallaTitulo",#1
+	"SeleccionNivel",#2
+	"TestWorld",#3
+	"Nivel1"#4
 ]
 
 #Variable que guarda el número en la lista del nivel actual
 var nivelActual
 
+var nivel1Superado = false
+
 func _ready():
 	randomize()
 	#Al iniciar el juego carga el primer nivel en la lista
-	cambiarNivel(1)
+	cambiarNivel(0)
 
 func _input(event):
 	#(DEBUG) Botón que libera el mouse automáticamente
@@ -55,3 +60,5 @@ func cambiarNivel(nivel):
 	$Nivel.add_child(instanciaNuevoNivel)
 	
 
+func _on_jefeNivel1_derrotado():
+	nivel1Superado = true

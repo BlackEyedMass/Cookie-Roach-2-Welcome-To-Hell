@@ -11,3 +11,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	position.x -= velocidad
+
+
+func _on_EnemigoPrueba_area_entered(area):
+	if area.is_in_group("bosses"):
+		morir(false)

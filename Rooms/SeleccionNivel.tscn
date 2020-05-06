@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/spr_hornetboss_icon.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Menus/SeleccionNivelControl.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/Musica/mus_seleccion_nivel.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/spr_hornetboss_dead_icon.png" type="Texture" id=4]
+
+[node name="SeleccionNivel" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="BotonNivel1" type="TextureButton" parent="."]
+margin_left = 158.348
+margin_top = 208.848
+margin_right = 222.348
+margin_bottom = 272.848
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 1 )
+texture_disabled = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Musica" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -2.0
+autoplay = true
+bus = "Musica"
+[connection signal="pressed" from="BotonNivel1" to="." method="_on_BotonNivel1_pressed"]

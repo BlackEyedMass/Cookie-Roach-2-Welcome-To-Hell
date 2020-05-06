@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fondos/PantallaTitulo/bg_pantallatitulo_v1.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Menus/PantallaTituloControl.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/Musica/mus_titulo.ogg" type="AudioStream" id=3]
+
+[node name="PantallaTitulo" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 275.217
+margin_top = 275.217
+margin_right = 395.217
+margin_bottom = 306.217
+text = "Click en donde sea
+para empezar"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Musica" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -2.0
+autoplay = true
+bus = "Musica"
+
+[node name="Version" type="Label" parent="."]
+margin_left = 558.934
+margin_top = 340.273
+margin_right = 632.934
+margin_bottom = 354.273
+text = "Pre-Alpha 1"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

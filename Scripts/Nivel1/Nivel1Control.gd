@@ -37,3 +37,16 @@ func _on_timerBossSpawn_timeout():
 	var instanciaBoss = boss.instance()
 	add_child(instanciaBoss)
 	instanciaBoss.position = Vector2(670,180)
+
+func _on_jefeNivel1_derrotado():
+	var timerSalida = Timer.new()
+	timerSalida.autostart = true
+	timerSalida.wait_time = 6
+	timerSalida.one_shot = true
+	timerSalida.connect("timeout",self,"_on_timerSalida_timeout")
+	add_child(timerSalida)
+	
+	$MusicaNivelCompletado.play()
+
+func _on_timerSalida_timeout():
+	control.cambiarNivel(2)

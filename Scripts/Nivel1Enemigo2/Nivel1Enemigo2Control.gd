@@ -16,3 +16,7 @@ func _exit_tree():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _on_Nivel1Enemigo2_area_entered(area):
+	if area.is_in_group("bosses"):
+		morir(false)

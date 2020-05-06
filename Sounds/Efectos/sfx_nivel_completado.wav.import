@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_nivel_completado.wav-b784342ec435ebbdcd7c3afcb781ee6b.sample"
+
+[deps]
+
+source_file="res://Sounds/Efectos/sfx_nivel_completado.wav"
+dest_files=[ "res://.import/sfx_nivel_completado.wav-b784342ec435ebbdcd7c3afcb781ee6b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -6,7 +6,7 @@ var velocidad = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	salud = 99
 
 func start(dirx,diry):
 	direccion.x = dirx

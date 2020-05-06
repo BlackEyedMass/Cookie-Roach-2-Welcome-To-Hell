@@ -8,3 +8,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Nivel1Enemigo1_area_entered(area):
+	if area.is_in_group("bosses"):
+		morir(false)

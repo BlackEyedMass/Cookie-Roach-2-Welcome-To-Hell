@@ -31,3 +31,4 @@ script = ExtResource( 4 )
 script = ExtResource( 5 )
 proyectil = ExtResource( 6 )
 cadenciaDisparo = Vector2( 1, 1.5 )
+[connection signal="area_entered" from="." to="." method="_on_Nivel1Enemigo2_area_entered"]
