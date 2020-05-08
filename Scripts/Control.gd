@@ -10,7 +10,8 @@ var listaNiveles = [
 	"PantallaTitulo",#1
 	"SeleccionNivel",#2
 	"TestWorld",#3
-	"Nivel1"#4
+	"Nivel1",#4
+	"Nivel2" #5
 ]
 
 #Variable que guarda el número en la lista del nivel actual
@@ -21,7 +22,7 @@ var nivel1Superado = false
 func _ready():
 	randomize()
 	#Al iniciar el juego carga el primer nivel en la lista
-	cambiarNivel(0)
+	cambiarNivel(5)
 
 func _input(event):
 	#(DEBUG) Botón que libera el mouse automáticamente
