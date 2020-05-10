@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.0377, 12.0821 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "anim_lengua_ataque_1"
 length = 0.5
 tracks/0/type = "value"
@@ -36,7 +36,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -89, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 3.58475, 3.62948 )
 
 [node name="Nivel2Enemigo1" type="Area2D" groups=[
@@ -52,7 +52,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="AnimacionAtaque" type="AnimationPlayer" parent="."]
-anims/anim_lengua_ataque_1 = SubResource( 3 )
+anims/anim_lengua_ataque_1 = SubResource( 2 )
 
 [node name="Lengua" type="Area2D" parent="." groups=[
 "enemigos",
@@ -66,7 +66,7 @@ texture = ExtResource( 1 )
 offset = Vector2( -12.1271, 0.0934315 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lengua"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="TiempoEntreAtaques" type="Timer" parent="."]
 one_shot = true

@@ -21,7 +21,7 @@ func _ready():
 #	pass
 
 func _on_timerBoss_timeout():
-	$Nivel1CreadorEnemigos.activo = false
+	$Nivel2CreadorEnemigos.activo = false
 	
 	control.advertenciaBoss()
 	
@@ -37,7 +37,7 @@ func _on_timerBossSpawn_timeout():
 	add_child(instanciaBoss)
 	instanciaBoss.position = Vector2(670,180)
 
-func _on_jefeNivel1_derrotado():
+func _on_jefeNivel2_derrotado():
 	var timerSalida = Timer.new()
 	timerSalida.autostart = true
 	timerSalida.wait_time = 6

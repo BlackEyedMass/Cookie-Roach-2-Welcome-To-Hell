@@ -12,6 +12,7 @@ var anguloInicial
 var anguloFinal
 
 func _ready():
+	#start(-255,-125,9,560,180)
 	pass
 
 func start(ani,anf,reps,posx,posy):
