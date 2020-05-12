@@ -2,8 +2,6 @@ extends Area2D
 
 #Variable salud que todos los enemigos del juego comparten
 
-
-
 var salud
 
 export(PackedScene) var powerUp

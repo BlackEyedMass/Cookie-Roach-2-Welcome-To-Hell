@@ -1,0 +1,32 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/StateMachine.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Nivel3Enemigo2/Nivel3Enemigo2EstadoMovimiento.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Nivel3Enemigo2/Nivel3Enemigo2EstadoIdle.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Enemigos/spr_enemigo_prueba.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Nivel3Enemigo2/Nivel3Enemigo2Control.gd" type="Script" id=5]
+[ext_resource path="res://Objects/Enemigos/Proyectiles/ProyectilEnemigoTargetJugador.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/PowerUp.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12.0031, 11.9791 )
+
+[node name="Nivel3Enemigo2" type="Area2D"]
+script = ExtResource( 5 )
+powerUp = ExtResource( 7 )
+proyectil = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource( 3 )
+
+[node name="Movimiento" type="Node" parent="StateMachine"]
+script = ExtResource( 2 )
