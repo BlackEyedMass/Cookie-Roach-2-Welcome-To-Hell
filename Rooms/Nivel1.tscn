@@ -9,7 +9,9 @@
 [ext_resource path="res://Objects/Enemigos/Nivel1Boss.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sounds/Efectos/sfx_nivel_completado.wav" type="AudioStream" id=8]
 
-[node name="Nivel1" type="Node2D"]
+[node name="Nivel1" type="Node2D" groups=[
+"jugable",
+]]
 script = ExtResource( 6 )
 boss = ExtResource( 7 )
 

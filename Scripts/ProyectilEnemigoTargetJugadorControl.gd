@@ -7,7 +7,7 @@ var distanciaAJugador = Vector2()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	salud = 99
+	salud = 1
 	
 	var jugador = (get_tree().get_nodes_in_group("jugador"))
 	if jugador.size() == 0:

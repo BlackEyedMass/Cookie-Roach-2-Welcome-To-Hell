@@ -8,7 +8,7 @@ export(PackedScene) var boss
 func _ready():
 	var timerBoss = Timer.new()
 	timerBoss.autostart = true
-	timerBoss.wait_time = 45
+	timerBoss.wait_time = 30
 	timerBoss.one_shot = true
 	timerBoss.connect("timeout",self,"_on_timerBoss_timeout")
 	add_child(timerBoss)
@@ -21,7 +21,7 @@ func _ready():
 #	pass
 
 func _on_timerBoss_timeout():
-	$Nivel2CreadorEnemigos.activo = false
+	$NivelBossFinalCreadorEnemigos.activo = false
 	
 	control.advertenciaBoss()
 	
@@ -36,16 +36,3 @@ func _on_timerBossSpawn_timeout():
 	var instanciaBoss = boss.instance()
 	add_child(instanciaBoss)
 	instanciaBoss.position = Vector2(670,180)
-
-func _on_jefeNivel2_derrotado():
-	var timerSalida = Timer.new()
-	timerSalida.autostart = true
-	timerSalida.wait_time = 6
-	timerSalida.one_shot = true
-	timerSalida.connect("timeout",self,"_on_timerSalida_timeout")
-	call_deferred("add_child",timerSalida)
-	
-	$MusicaNivelCompletado.play()
-
-func _on_timerSalida_timeout():
-	control.cambiarNivel(2)

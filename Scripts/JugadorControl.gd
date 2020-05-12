@@ -10,6 +10,8 @@ var movimiento = Vector2()
 var puedeDisparar = false
 var invencible = false
 
+var modoDios = false
+
 export(int) var escudos
 export(float) var velocidadDisparo
 export(float) var cadenciaDisparo
@@ -21,7 +23,8 @@ func _ready():
 	$TiempoEntreDisparos.start(cadenciaDisparo)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	
+	if modoDios:
+		movimiento = Vector2(0,360)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
@@ -33,6 +36,12 @@ func _input(event):
 		posicionMouse += posicionRelativaMouse
 
 func _process(_delta):
+	
+	if modoDios:
+		escudos = 3
+		damage = 10
+		cadenciaDisparo = 0.1
+		velocidadDisparo = 20
 	
 	#Limita el area de juego y mueve al jugador
 	posicionMouse.x = clamp(posicionMouse.x,50,580)
@@ -67,8 +76,7 @@ func _on_Jugador_area_entered(area):
 			$TiempoInvencibilidad.start()
 			
 		elif escudos <= 0:
-			find_parent("Control").terminarJuego()
-			queue_free()
+			call_deferred('free')
 
 func nuevoPowerUp(tipo):
 	match tipo:
@@ -89,3 +97,6 @@ func nuevoPowerUp(tipo):
 func _on_TiempoInvencibilidad_timeout():
 	invencible = false
 	$Sprite.modulate = Color(1,1,1,1)
+
+func _exit_tree():
+	find_parent("Control").terminarJuego()

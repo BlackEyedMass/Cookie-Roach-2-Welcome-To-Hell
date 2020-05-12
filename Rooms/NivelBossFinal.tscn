@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/CascaronNivelFinal/NivelBossFinalCreadorEnemigosControl.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Enemigos/NivelFinalCascaron.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Jugador.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/BossFinal/NivelBossFinalControl.gd" type="Script" id=4]
+[ext_resource path="res://Objects/Enemigos/BossFinal.tscn" type="PackedScene" id=5]
+
+[node name="NivelBossFinal" type="Node2D" groups=[
+"jugable",
+]]
+script = ExtResource( 4 )
+boss = ExtResource( 5 )
+
+[node name="NivelBossFinalCreadorEnemigos" type="Node2D" parent="."]
+script = ExtResource( 1 )
+enemigo = ExtResource( 2 )
+
+[node name="Jugador" parent="." instance=ExtResource( 3 )]

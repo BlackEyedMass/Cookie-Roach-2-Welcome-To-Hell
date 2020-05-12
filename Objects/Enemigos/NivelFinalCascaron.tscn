@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/CascaronNivelFinal/NivelFinalCascaronControl.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Enemigos/spr_enemigo_prueba.png" type="Texture" id=2]
+[ext_resource path="res://Objects/PowerUp.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.867, 11.6766 )
+
+[node name="NivelFinalCascaron" type="Area2D"]
+script = ExtResource( 1 )
+powerUp = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

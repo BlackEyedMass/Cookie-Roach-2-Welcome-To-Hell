@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/spr_hornetboss_icon.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Menus/SeleccionNivelControl.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/spr_lizardboss_dead_icon.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/spr_spiderboss_icon.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/spr_spiderboss_dead_icon.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/spr_player_icon.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/spr_final_boss_icon.png" type="Texture" id=10]
 
 [node name="SeleccionNivel" type="Node2D"]
 script = ExtResource( 2 )
@@ -51,6 +53,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BotonNivel4" type="TextureButton" parent="."]
+margin_left = 293.888
+margin_top = 257.459
+margin_right = 357.888
+margin_bottom = 321.459
+disabled = true
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Musica" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 volume_db = -2.0
@@ -59,3 +75,4 @@ bus = "Musica"
 [connection signal="pressed" from="BotonNivel1" to="." method="_on_BotonNivel1_pressed"]
 [connection signal="pressed" from="BotonNivel2" to="." method="_on_BotonNivel2_pressed"]
 [connection signal="pressed" from="BotonNivel3" to="." method="_on_BotonNivel3_pressed"]
+[connection signal="pressed" from="BotonNivel4" to="." method="_on_BotonNivel4_pressed"]

@@ -35,11 +35,11 @@ autoplay = true
 bus = "Musica"
 
 [node name="Version" type="Label" parent="."]
-margin_left = 558.934
-margin_top = 340.273
-margin_right = 632.934
-margin_bottom = 354.273
-text = "Pre-Alpha 1"
+margin_left = 421.0
+margin_top = 340.0
+margin_right = 633.0
+margin_bottom = 354.0
+text = "vFirst Playable"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false

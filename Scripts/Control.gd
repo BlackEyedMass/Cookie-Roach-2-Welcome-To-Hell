@@ -12,31 +12,46 @@ var listaNiveles = [
 	"TestWorld",#3
 	"Nivel1",#4
 	"Nivel2", #5
-	"Nivel3" #6
+	"Nivel3", #6
+	"NivelBossFinal", #7
+	"BossFinalCinematica", #8
+	"BossFinalFase2", #9
+	"PantallaFinal" #10
 ]
 
 #Variable que guarda el número en la lista del nivel actual
 var nivelActual
+var nivelActualEscena
 
 var nivel1Superado = false
 var nivel2Superado = false
 var nivel3Superado = false
 
+var numeroMuertesNivelFinal
+
+var secuenciaFinalActivada = false
+
 func _ready():
+	numeroMuertesNivelFinal = 0
+	
+	OS.set_window_maximized(true)
 	randomize()
 	#Al iniciar el juego carga el primer nivel en la lista
-	cambiarNivel(0)
+	cambiarNivel(7)
 
 func _input(event):
 	#(DEBUG) Botón que libera el mouse automáticamente
 	if event.is_action_pressed("ui_end"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	if event.is_action_pressed("ui_cancel"):
+		cambiarNivel(2)
 
 #Función encargada de instanciar la pantalla de Game Over cuando el juego termina
 func terminarJuego():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	var nuevaPantallaGameOver = pantallaGameOver.instance()
-	add_child(nuevaPantallaGameOver)
+	call_deferred('add_child',nuevaPantallaGameOver)
+
 
 func advertenciaBoss():
 	var nuevaAdvertencia = advertenciaBoss.instance()
@@ -63,6 +78,7 @@ func cambiarNivel(nivel):
 	var instanciaNuevoNivel = nuevoNivel.instance()
 	$Nivel.add_child(instanciaNuevoNivel)
 	
+	nivelActualEscena = instanciaNuevoNivel
 
 func _on_jefeNivel1_derrotado():
 	nivel1Superado = true
@@ -72,3 +88,24 @@ func _on_jefeNivel2_derrotado():
 
 func _on_jefeNivel3_derrotado():
 	nivel3Superado = true
+
+func on_BossFinal_jugador_derrotado():
+	numeroMuertesNivelFinal += 1
+	print("Numero de muertes nivel final: ",numeroMuertesNivelFinal)
+	
+	if numeroMuertesNivelFinal >= 1:
+		secuenciaFinalActivada = true
+
+func _on_iniciar_secuencia_final():
+	var timerCambio = Timer.new()
+	timerCambio.autostart = true
+	timerCambio.one_shot = true
+	timerCambio.wait_time = 5
+	timerCambio.connect("timeout",self,"_on_timerCambio_timeout")
+	add_child(timerCambio)
+
+func _on_timerCambio_timeout():
+	cambiarNivel(8)
+
+func on_BossFinal_derrotado():
+	cambiarNivel(10)

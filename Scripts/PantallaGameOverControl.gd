@@ -3,9 +3,21 @@ extends Control
 #Variable que guarda al padre de este nodo
 var controlador
 
+signal iniciar_secuencia_final
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	controlador = get_parent()
+	
+	connect("iniciar_secuencia_final",controlador,"_on_iniciar_secuencia_final")
+	
+	if !controlador.nivelActualEscena.is_in_group("jugable"):
+		call_deferred('free')
+	elif controlador.secuenciaFinalActivada:
+		call_deferred('free')
+		emit_signal("iniciar_secuencia_final")
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

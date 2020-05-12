@@ -20,6 +20,9 @@ func _ready():
 	
 	if control.nivel3Superado:
 		$BotonNivel3.disabled = true
+	
+	if $BotonNivel1.disabled and $BotonNivel2.disabled and $BotonNivel3.disabled:
+		$BotonNivel4.disabled = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,3 +40,7 @@ func _on_BotonNivel2_pressed():
 func _on_BotonNivel3_pressed():
 	var control = find_parent("Control")
 	control.cambiarNivel(6)
+
+func _on_BotonNivel4_pressed():
+	var control = find_parent("Control")
+	control.cambiarNivel(7)

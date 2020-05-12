@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Jugador.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/BossFinal/BossFinalFase2Control.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Enemigos/BossFinal.tscn" type="PackedScene" id=3]
+
+[node name="BossFinalFase2" type="Node2D" groups=[
+"jugable",
+]]
+script = ExtResource( 2 )
+jugador = ExtResource( 1 )
+boss = ExtResource( 3 )
