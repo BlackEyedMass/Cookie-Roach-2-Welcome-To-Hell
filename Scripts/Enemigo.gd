@@ -17,7 +17,10 @@ func _process(_delta):
 	
 	#Cuando los enemigos salen del borde izquierdo de la pantalla se destruyen automaticamente
 	if position.x < -100:
-		morir(true)
+		if is_in_group("bosses"):
+			return
+		else:
+			morir(true)
 
 #Esta funcion se encarga de reducir la salud si se recibe daño, y destruir al enemigo si llega a 0
 func perderSalud(dmg):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/spr_hornetboss_icon.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Menus/SeleccionNivelControl.gd" type="Script" id=2]
@@ -6,15 +6,17 @@
 [ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/spr_hornetboss_dead_icon.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/spr_lizardboss_icon.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/spr_lizardboss_dead_icon.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/spr_spiderboss_icon.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/spr_spiderboss_dead_icon.png" type="Texture" id=8]
 
 [node name="SeleccionNivel" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="BotonNivel1" type="TextureButton" parent="."]
-margin_left = 158.348
-margin_top = 208.848
-margin_right = 222.348
-margin_bottom = 272.848
+margin_left = 122.248
+margin_top = 158.498
+margin_right = 186.248
+margin_bottom = 222.498
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 1 )
 texture_hover = ExtResource( 1 )
@@ -24,14 +26,27 @@ __meta__ = {
 }
 
 [node name="BotonNivel2" type="TextureButton" parent="."]
-margin_left = 467.738
-margin_top = 213.759
-margin_right = 531.738
-margin_bottom = 277.759
+margin_left = 295.788
+margin_top = 38.009
+margin_right = 359.788
+margin_bottom = 102.009
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 5 )
 texture_hover = ExtResource( 5 )
 texture_disabled = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BotonNivel3" type="TextureButton" parent="."]
+margin_left = 451.588
+margin_top = 159.609
+margin_right = 515.588
+margin_bottom = 223.609
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -43,3 +58,4 @@ autoplay = true
 bus = "Musica"
 [connection signal="pressed" from="BotonNivel1" to="." method="_on_BotonNivel1_pressed"]
 [connection signal="pressed" from="BotonNivel2" to="." method="_on_BotonNivel2_pressed"]
+[connection signal="pressed" from="BotonNivel3" to="." method="_on_BotonNivel3_pressed"]

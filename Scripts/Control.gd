@@ -20,11 +20,12 @@ var nivelActual
 
 var nivel1Superado = false
 var nivel2Superado = false
+var nivel3Superado = false
 
 func _ready():
 	randomize()
 	#Al iniciar el juego carga el primer nivel en la lista
-	cambiarNivel(6)
+	cambiarNivel(0)
 
 func _input(event):
 	#(DEBUG) Botón que libera el mouse automáticamente
@@ -68,3 +69,6 @@ func _on_jefeNivel1_derrotado():
 
 func _on_jefeNivel2_derrotado():
 	nivel2Superado = true
+
+func _on_jefeNivel3_derrotado():
+	nivel3Superado = true
