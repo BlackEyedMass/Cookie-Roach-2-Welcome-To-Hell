@@ -1,0 +1,332 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Enemigos/Nivel1/spr_nivel_1_avispa_jefe.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Nivel1Boss/BossNivel1MuertoControl.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.960938, 0.204575, 0.0300293, 1, 1, 0.470588, 0, 0 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "anim_jefe_1_muerte"
+length = 8.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Sprite:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1.94173, -0.25, 0, 0.25, 0, -3.60606, -0.25, 0, 0.25, 0, 0.27739, -0.25, 0, 0.25, 0, -1.10956, -0.25, 0, 0.25, 0, 2.21912, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1.94173, -0.25, 0, 0.25, 0, 2.21912, -0.25, 0, 0.25, 0, 0.513966, -0.25, 0, 0.25, 0, -0.203995, -0.25, 0, 0.25, 0, -0.203995, -0.25, 0, 0.25, 0, 0.334473, -0.25, 0, 0.25, 0, -0.0323906, -0.25, 0, 0.25, 0, -0.00618553, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1.94173, -0.25, 0, 0.25, 0, -3.60606, -0.25, 0, 0.25, 0, 0.27739, -0.25, 0, 0.25, 0, -1.10956, -0.25, 0, 0.25, 0, 2.21912, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1.94173, -0.25, 0, 0.25, 0, 2.21912, -0.25, 0, 0.25, 0, 0.513966, -0.25, 0, 0.25, 0, -0.203995, -0.25, 0, 0.25, 0, -0.203995, -0.25, 0, 0.25, 0, 0.334473, -0.25, 0, 0.25, 0, -0.0323906, -0.25, 0, 0.25, 0, -0.00618553, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6, 6.1, 6.2, 6.3, 6.4, 6.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Sprite:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -1.10956, -0.25, 0, 0.25, 0, -2.49651, -0.25, 0, 0.25, 0, -0.554787, -0.25, 0, 0.25, 0, 0.832161, -0.25, 0, 0.25, 0, -1.66434, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -1.10956, -0.25, 0, 0.25, 0, -1.66434, -0.25, 0, 0.25, 0, -0.0326309, -0.25, 0, 0.25, 0, 0.236603, -0.25, 0, 0.25, 0, -0.301865, -0.25, 0, 0.25, 0, 0.0571136, -0.25, 0, 0.25, 0, 0.266749, -0.25, 0, 0.25, 0, -0.0477042, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -1.10956, -0.25, 0, 0.25, 0, -2.49651, -0.25, 0, 0.25, 0, -0.554787, -0.25, 0, 0.25, 0, 0.832161, -0.25, 0, 0.25, 0, -1.66434, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -1.10956, -0.25, 0, 0.25, 0, -1.66434, -0.25, 0, 0.25, 0, -0.0326309, -0.25, 0, 0.25, 0, 0.236603, -0.25, 0, 0.25, 0, -0.301865, -0.25, 0, 0.25, 0, 0.0571136, -0.25, 0, 0.25, 0, 0.266749, -0.25, 0, 0.25, 0, -0.0477042, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6, 6.1, 6.2, 6.3, 6.4, 6.5 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Explosiones/Explosion1:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Explosiones/Explosion2:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Explosiones/Explosion3:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Explosiones/Explosion4:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 3.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Explosiones/Explosion5:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Explosiones/Explosion6:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 4.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Explosiones/Explosion7:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 4.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Explosiones/Explosion8:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 4.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Explosiones/Explosion9:emitting")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Sprite:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 5, 6.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 6.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="BossNivel1Muerto" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 6
+frame = 2
+
+[node name="Explosiones" type="Node2D" parent="."]
+
+[node name="Explosion1" type="CPUParticles2D" parent="Explosiones"]
+position = Vector2( -32.6134, -5.01744 )
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 10.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
+
+[node name="Explosion2" type="CPUParticles2D" parent="Explosiones"]
+position = Vector2( -2.50873, 28.014 )
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 10.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
+
+[node name="Explosion3" type="CPUParticles2D" parent="Explosiones"]
+position = Vector2( -9.61678, -9.19864 )
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 10.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
+
+[node name="Explosion4" type="CPUParticles2D" parent="Explosiones"]
+position = Vector2( -29.6865, 12.1255 )
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 10.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
+
+[node name="Explosion5" type="CPUParticles2D" parent="Explosiones"]
+position = Vector2( -29.6865, 12.1255 )
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 10.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
+
+[node name="Explosion6" type="CPUParticles2D" parent="Explosiones"]
+position = Vector2( -20.906, -18.8154 )
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 10.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
+
+[node name="Explosion7" type="CPUParticles2D" parent="Explosiones"]
+position = Vector2( -50.1744, -1.67248 )
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 10.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
+
+[node name="Explosion8" type="CPUParticles2D" parent="Explosiones"]
+position = Vector2( -12.1255, 7.94427 )
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 10.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
+
+[node name="Explosion9" type="CPUParticles2D" parent="Explosiones"]
+position = Vector2( -24.142, 0.934649 )
+emitting = false
+amount = 40
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 30.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "anim_jefe_1_muerte"
+anims/anim_jefe_1_muerte = SubResource( 2 )

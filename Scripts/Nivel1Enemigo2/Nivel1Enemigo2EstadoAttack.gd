@@ -37,6 +37,11 @@ func process(delta):
 	return delta
 
 func _on_timerDisparos_timeout():
+	
+	var sprite = fsm.padre.get_node("Sprite")
+	
+	sprite.frame = 2
+	
 	var nuevoProyectil = proyectil.instance()
 	fsm.padre.get_parent().add_child(nuevoProyectil)
 	nuevoProyectil.start(fsm.padre.position,velocidadDisparo)

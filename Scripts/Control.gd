@@ -2,7 +2,7 @@ extends Node
 
 #Carga la pantalla de Game Over
 export(PackedScene) var pantallaGameOver
-export(PackedScene) var advertenciaBoss
+export(PackedScene) var bossAdvertencia
 
 #Array con todos los niveles del juego
 var listaNiveles = [
@@ -38,7 +38,7 @@ func _ready():
 	OS.set_window_maximized(true)
 	randomize()
 	#Al iniciar el juego carga el primer nivel en la lista
-	cambiarNivel(3)
+	cambiarNivel(0)
 
 func _input(event):
 	#(DEBUG) Botón que libera el mouse automáticamente
@@ -54,8 +54,9 @@ func terminarJuego():
 	call_deferred('add_child',nuevaPantallaGameOver)
 
 
+# warning-ignore:function_conflicts_variable
 func advertenciaBoss():
-	var nuevaAdvertencia = advertenciaBoss.instance()
+	var nuevaAdvertencia = bossAdvertencia.instance()
 	add_child(nuevaAdvertencia)
 
 #Función encargada de cambiar el nivel actual

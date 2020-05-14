@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sprites/Enemigos/Nivel1/spr_nivel_1_avispa_3.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Enemigos/Nivel1/spr_nivel_1_avispa_2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Enemigos/Nivel1/spr_nivel_1_avispa_1.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/AvispaMuertaControl.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 24.0565
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.372549, 0.372549, 0.372549, 0.435294, 0.607843, 0.607843, 0.607843, 0.192157 )
+
+[node name="AvispaMuerta" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Cuerpo" type="RigidBody2D" parent="."]
+
+[node name="Sprites" type="Node2D" parent="Cuerpo"]
+
+[node name="N1E1" type="Sprite" parent="Cuerpo/Sprites"]
+visible = false
+texture = ExtResource( 3 )
+hframes = 5
+frame = 4
+
+[node name="N1E2" type="Sprite" parent="Cuerpo/Sprites"]
+visible = false
+texture = ExtResource( 2 )
+hframes = 3
+frame = 2
+
+[node name="N1E3" type="Sprite" parent="Cuerpo/Sprites"]
+visible = false
+texture = ExtResource( 1 )
+hframes = 4
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cuerpo"]
+shape = SubResource( 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Cuerpo"]
+local_coords = false
+direction = Vector2( 0, -1 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 30.0
+angle = 45.0
+angle_random = 1.0
+scale_amount = 20.0
+scale_amount_random = 0.5
+color_ramp = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

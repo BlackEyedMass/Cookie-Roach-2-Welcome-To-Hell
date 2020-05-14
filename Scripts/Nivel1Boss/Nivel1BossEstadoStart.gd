@@ -5,7 +5,9 @@ var fsm: StateMachine
 var limite = 600
 
 func enter():
-	pass
+	fsm.animador.play("anim_nivel_1_avispa_jefe_normal")
+	
+	fsm.padre.position.x = 650
 
 func exit(next_state):
 	fsm.change_to(next_state)

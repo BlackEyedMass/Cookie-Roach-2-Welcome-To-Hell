@@ -18,6 +18,7 @@ func _ready():
 	pass
 
 func enter():
+	fsm.animador.play("anim_nivel_1_avispa_jefe_disparando")
 	
 	var direccionInicial = randf()
 	

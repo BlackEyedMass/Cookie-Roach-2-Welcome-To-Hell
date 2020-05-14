@@ -13,7 +13,7 @@ func start(dirx,diry):
 	direccion.y = diry
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var movimiento = direccion * velocidad
 	global_position += movimiento
 	

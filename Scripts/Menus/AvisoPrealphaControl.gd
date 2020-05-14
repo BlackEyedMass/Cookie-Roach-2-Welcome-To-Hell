@@ -15,6 +15,6 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	var control = find_parent("Control")
 	control.cambiarNivel(1)

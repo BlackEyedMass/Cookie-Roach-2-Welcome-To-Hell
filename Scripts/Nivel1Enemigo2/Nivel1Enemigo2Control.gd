@@ -1,5 +1,7 @@
 extends "res://Scripts/Enemigo.gd"
 
+export(PackedScene) var cadaver
+
 signal muerto
 
 func _ready():
@@ -12,6 +14,11 @@ func _ready():
 func _exit_tree():
 	emit_signal("muerto")
 	print("RIP")
+	
+	var nuevoCadaver = cadaver.instance()
+	nuevoCadaver.generar(2)
+	nuevoCadaver.position = position
+	get_parent().call_deferred("add_child",nuevoCadaver)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

@@ -17,8 +17,22 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(_delta):
+	$ParallaxBackground/Capa1.position.x -= 0.25
+	if $ParallaxBackground/Capa1.position.x <= -1280:
+		$ParallaxBackground/Capa1.position.x = 0
+	
+	$ParallaxBackground/Capa2.position.x -= 0.35
+	if $ParallaxBackground/Capa2.position.x <= -1280:
+		$ParallaxBackground/Capa2.position.x = 0
+	
+	$ParallaxBackground/Capa3.position.x -= 0.50
+	if $ParallaxBackground/Capa3.position.x <= -1280:
+		$ParallaxBackground/Capa3.position.x = 0
+	
+	$ParallaxBackground/Capa4.position.x -= 0.60
+	if $ParallaxBackground/Capa4.position.x <= -3000:
+		$ParallaxBackground/Capa4.position.x = 0
 
 func _on_timerBoss_timeout():
 	$Nivel1CreadorEnemigos.activo = false
@@ -43,7 +57,7 @@ func _on_jefeNivel1_derrotado():
 	timerSalida.wait_time = 6
 	timerSalida.one_shot = true
 	timerSalida.connect("timeout",self,"_on_timerSalida_timeout")
-	add_child(timerSalida)
+	call_deferred("add_child",timerSalida)
 	
 	$MusicaNivelCompletado.play()
 

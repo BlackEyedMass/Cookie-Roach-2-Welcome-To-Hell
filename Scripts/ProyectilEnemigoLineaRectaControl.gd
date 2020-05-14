@@ -11,7 +11,7 @@ func start(pos,vel):
 
 func _process(_delta):
 	if velocidad == null:
-		return
+		destruir()
 	else:
 		position.x -= velocidad
 		rotate(-0.1)

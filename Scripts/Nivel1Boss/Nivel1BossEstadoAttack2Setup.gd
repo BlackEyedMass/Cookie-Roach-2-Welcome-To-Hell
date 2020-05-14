@@ -6,6 +6,8 @@ var posicionJugador = Vector2()
 var posicionActual = Vector2()
 var posicionObjetivo = Vector2()
 func enter():
+	fsm.animador.play("anim_nivel_1_avispa_jefe_normal")
+	
 	posicionObjetivo = fsm.padre.position
 	
 	var timer = Timer.new()

@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Sprites/Enemigos/spr_enemigo_prueba.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Enemigos/Nivel1/spr_nivel_1_avispa_jefe.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Nivel1Boss/Nivel1BossControl.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/StateMachine.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Nivel1Boss/Nivel1BossEstadoStart.gd" type="Script" id=4]
@@ -12,21 +12,146 @@
 [ext_resource path="res://Scripts/Nivel1Boss/Nivel1BossEstadoAttack3.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/Nivel1Boss/Nivel1BossEstadoAttack3Setup.gd" type="Script" id=11]
 [ext_resource path="res://Objects/Enemigos/Proyectiles/ProyectilEnemigoSpreadDisparador.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objects/Enemigos/BossNivel1Muerto.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 35.9139, 35.9976 )
+extents = Vector2( 52.3115, 13.5276 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "anim_nivel_1_avispa_jefe_cargando"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -4.49133, 2.75831 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:shape:extents")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 52.3115, 13.5276 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "anim_nivel_1_avispa_jefe_disparando"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:shape:extents")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 19.896, 28.9162 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -24.1659, 4.37603 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -24.0916, 9.91694 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:shape:extents")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 25.3009, 23.014 ) ]
+}
 
 [node name="Nivel1Boss" type="Area2D" groups=[
 "bosses",
 ]]
 script = ExtResource( 2 )
 powerUp = ExtResource( 6 )
+cadaver = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
+hframes = 6
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4.49133, 2.75831 )
 shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="."]
@@ -55,3 +180,8 @@ script = ExtResource( 11 )
 [node name="Attack3" type="Node" parent="StateMachine"]
 script = ExtResource( 10 )
 ataque = ExtResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/anim_nivel_1_avispa_jefe_cargando = SubResource( 2 )
+anims/anim_nivel_1_avispa_jefe_disparando = SubResource( 3 )
+anims/anim_nivel_1_avispa_jefe_normal = SubResource( 4 )

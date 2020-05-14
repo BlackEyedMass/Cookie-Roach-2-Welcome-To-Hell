@@ -1,10 +1,9 @@
 extends "res://Scripts/Enemigo.gd"
 
+export(PackedScene) var cadaver
 
 var saludBase = 25
 var esperaEntreAtaques = 9
-
-signal derrotado
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,18 +16,10 @@ func _ready():
 		var cadenciaDisparoJugador = instanciaJugador.cadenciaDisparo
 		
 		salud = round((saludBase * damageJugador) * (1 + cadenciaDisparoJugador))
-		
-		var controlador = find_parent("Control")
-		connect("derrotado",controlador,"_on_jefeNivel1_derrotado")
-		
-		var controladorNivel1 = find_parent("Nivel1")
-		connect("derrotado",controladorNivel1,"_on_jefeNivel1_derrotado")
-	
-	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+# warning-ignore:unused_argument
+func _process(_delta):
 	if (salud < salud * 0.75):
 		esperaEntreAtaques = 7
 	elif (salud < salud * 0.5):
@@ -37,4 +28,6 @@ func _process(delta):
 		esperaEntreAtaques = 3
 
 func _exit_tree():
-	emit_signal("derrotado")
+	var nuevoCadaver = cadaver.instance()
+	nuevoCadaver.position = position
+	get_parent().add_child(nuevoCadaver)

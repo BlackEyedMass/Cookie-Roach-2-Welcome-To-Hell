@@ -1,5 +1,6 @@
 extends "res://Scripts/Enemigo.gd"
 
+export(PackedScene) var cadaver
 
 export(int) var velocidad
 
@@ -16,3 +17,9 @@ func _process(_delta):
 func _on_EnemigoPrueba_area_entered(area):
 	if area.is_in_group("bosses"):
 		morir(false)
+
+func _exit_tree():
+	var nuevoCadaver = cadaver.instance()
+	nuevoCadaver.generar(1)
+	nuevoCadaver.position = position
+	get_parent().call_deferred("add_child",nuevoCadaver)
