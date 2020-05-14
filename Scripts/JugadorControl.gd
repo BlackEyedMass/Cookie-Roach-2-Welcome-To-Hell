@@ -1,6 +1,7 @@
 extends Area2D
 
 export(PackedScene) var proyectil
+export(PackedScene) var jugadorMuerto
 
 #Variables Movimiento
 var posicionMouse = Vector2()
@@ -19,6 +20,8 @@ export(float) var damage
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimationPlayer.play("anim_jugador_normal")
+	
 	$VisualizadorEscudos.crear(escudos)
 	$TiempoEntreDisparos.start(cadenciaDisparo)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -57,15 +60,21 @@ func _process(_delta):
 		instanciaProyectil.start(position,velocidadDisparo,damage)
 		puedeDisparar = false
 		
+		$AnimationPlayer.play("anim_jugador_disparando")
+		
 		$TiempoEntreDisparos.start(cadenciaDisparo)
 
 func _on_TiempoEntreDisparos_timeout():
 	puedeDisparar = true
+	
+	$AnimationPlayer.play("anim_jugador_normal")
 
 #Controla las colisiones
 func _on_Jugador_area_entered(area):
 	if area.is_in_group("enemigos") and !invencible:
 		if escudos > 0:
+			$SonidoPerderVida.play()
+			
 			escudos -= 1
 			
 			$VisualizadorEscudos.crear(escudos)
@@ -100,3 +109,7 @@ func _on_TiempoInvencibilidad_timeout():
 
 func _exit_tree():
 	find_parent("Control").terminarJuego()
+	
+	var muerto = jugadorMuerto.instance()
+	muerto.position = position
+	get_parent().call_deferred("add_child",muerto)

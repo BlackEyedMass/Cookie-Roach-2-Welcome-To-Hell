@@ -3,7 +3,8 @@ extends Node
 var fsm: StateMachine
 
 func enter():
-	pass
+	var animador = fsm.padre.get_node("AnimationPlayer")
+	animador.play("anim_nivel_1_avispa_1_cargando")
 
 func exit(next_state):
 	fsm.change_to(next_state)

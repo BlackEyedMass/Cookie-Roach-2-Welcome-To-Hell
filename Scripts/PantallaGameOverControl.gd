@@ -5,8 +5,25 @@ var controlador
 
 signal iniciar_secuencia_final
 
+var enabled
+
+var frases = [ 
+	"Fin del juego",
+	"Tan matao",
+	"You died",
+	"Wasted",
+	"F",
+	"Git gud",
+	"Compráte manos, manco de mierda",
+	"La madre que me pario pero que tonto que eres esque madre mía más tonto y no naces es que me cago en las cuatro farolas que alumbran las tumbas de tus putisimos muertos como puedes ser tan tonto es que madre mía"
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	enabled = false
+	
+	$AnimationPlayer.play("anim_pantalla_gameover")
+	
 	controlador = get_parent()
 	
 	connect("iniciar_secuencia_final",controlador,"_on_iniciar_secuencia_final")
@@ -18,16 +35,15 @@ func _ready():
 		emit_signal("iniciar_secuencia_final")
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	var fraseAleatoria = randi() % frases.size() - 1
+	$Mensaje.bbcode_text = "[center]" + frases[fraseAleatoria] + "[/center]"
 
+func _on_Reintentar_pressed():
+	var nivelActual = controlador.nivelActual
+	controlador.cambiarNivel(nivelActual)
+	queue_free()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-#Esta función se encarga de liberar el mouse y reiniciar el nivel si se hace click
-func _input(event):
-	if event is InputEventMouseButton:
-		if Input.is_mouse_button_pressed(BUTTON_LEFT):
-			var nivelActual = controlador.nivelActual
-			controlador.cambiarNivel(nivelActual)
-			queue_free()
+func _on_SeleccionarNivel_pressed():
+	controlador.cambiarNivel(2)
+	queue_free()

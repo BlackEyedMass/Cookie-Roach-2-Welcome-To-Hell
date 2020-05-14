@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mus_fin_del_juego.ogg-59c58c9717d204e7aa7689ed8c9d8f64.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Musica/mus_fin_del_juego.ogg"
+dest_files=[ "res://.import/mus_fin_del_juego.ogg-59c58c9717d204e7aa7689ed8c9d8f64.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

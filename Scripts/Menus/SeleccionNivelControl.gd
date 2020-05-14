@@ -31,15 +31,21 @@ func _ready():
 
 func _on_BotonNivel1_pressed():
 	var control = find_parent("Control")
-	control.cambiarNivel(4)
+	Global.cambiarNivelSeleccionado(1)
+	control.cambiarNivel(11)
+
 
 func _on_BotonNivel2_pressed():
 	var control = find_parent("Control")
-	control.cambiarNivel(5)
+	Global.cambiarNivelSeleccionado(2)
+	control.cambiarNivel(11)
+
 
 func _on_BotonNivel3_pressed():
 	var control = find_parent("Control")
-	control.cambiarNivel(6)
+	Global.cambiarNivelSeleccionado(3)
+	control.cambiarNivel(11)
+
 
 func _on_BotonNivel4_pressed():
 	var control = find_parent("Control")

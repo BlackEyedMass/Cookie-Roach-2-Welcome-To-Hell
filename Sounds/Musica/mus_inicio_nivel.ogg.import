@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mus_inicio_nivel.ogg-e340b43a8679a382c83c14051fb08ba6.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Musica/mus_inicio_nivel.ogg"
+dest_files=[ "res://.import/mus_inicio_nivel.ogg-e340b43a8679a382c83c14051fb08ba6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

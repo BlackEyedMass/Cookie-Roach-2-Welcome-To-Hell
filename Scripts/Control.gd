@@ -16,7 +16,8 @@ var listaNiveles = [
 	"NivelBossFinal", #7
 	"BossFinalCinematica", #8
 	"BossFinalFase2", #9
-	"PantallaFinal" #10
+	"PantallaFinal", #10
+	"IntroNivel" #11
 ]
 
 #Variable que guarda el número en la lista del nivel actual
@@ -37,7 +38,7 @@ func _ready():
 	OS.set_window_maximized(true)
 	randomize()
 	#Al iniciar el juego carga el primer nivel en la lista
-	cambiarNivel(7)
+	cambiarNivel(3)
 
 func _input(event):
 	#(DEBUG) Botón que libera el mouse automáticamente

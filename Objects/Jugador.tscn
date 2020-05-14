@@ -1,19 +1,56 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Sprites/Jugador/spr_jugador_placeholder_1.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Jugador/spr_jugador.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/JugadorControl.gd" type="Script" id=2]
 [ext_resource path="res://Objects/ProyectilJugador.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/JugadorEscudosVisualizador.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/Jugador/spr_jugador_escudo.png" type="Texture" id=5]
+[ext_resource path="res://Objects/JugadorMuerto.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sounds/Efectos/sfx_jugador_damage.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 22.1818, 10.7863 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "anim_jugador_disparando"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "anim_jugador_normal"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
 
 [node name="Jugador" type="Area2D" groups=[
 "jugador",
 ]]
 script = ExtResource( 2 )
 proyectil = ExtResource( 3 )
+jugadorMuerto = ExtResource( 6 )
 escudos = 1
 velocidadDisparo = 5.0
 cadenciaDisparo = 1.0
@@ -22,6 +59,7 @@ damage = 1.0
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 1 )
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -35,6 +73,13 @@ one_shot = true
 
 [node name="TiempoInvencibilidad" type="Timer" parent="."]
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/anim_jugador_disparando = SubResource( 2 )
+anims/anim_jugador_normal = SubResource( 3 )
+
+[node name="SonidoPerderVida" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 [connection signal="area_entered" from="." to="." method="_on_Jugador_area_entered"]
 [connection signal="timeout" from="TiempoEntreDisparos" to="." method="_on_TiempoEntreDisparos_timeout"]
 [connection signal="timeout" from="TiempoInvencibilidad" to="." method="_on_TiempoInvencibilidad_timeout"]

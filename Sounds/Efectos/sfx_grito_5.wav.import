@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_grito_5.wav-9023190ba6c0ab91fa68196248b84525.sample"
+
+[deps]
+
+source_file="res://Sounds/Efectos/sfx_grito_5.wav"
+dest_files=[ "res://.import/sfx_grito_5.wav-9023190ba6c0ab91fa68196248b84525.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
