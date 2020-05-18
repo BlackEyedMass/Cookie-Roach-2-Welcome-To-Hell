@@ -38,15 +38,19 @@ func process(delta):
 		return
 	else:
 		var instanciaJugador = jugador[0]
-		fsm.padre.look_at(instanciaJugador.global_position)
-		fsm.padre.rotation_degrees = fsm.padre.rotation_degrees + 180
+		fsm.padre.get_node("Rotable").look_at(instanciaJugador.global_position)
+		fsm.padre.get_node("Rotable").rotation_degrees = fsm.padre.get_node("Rotable").rotation_degrees + 180
 		
 		var distanciaAJugador = instanciaJugador.global_position - fsm.padre.global_position
 
 func _on_timerDisparos_timeout():
-	var nuevoProyectil = proyectil.instance()
-	nuevoProyectil.position = fsm.padre.position
-	get_parent().add_child(nuevoProyectil)
+	var nuevoProyectil1 = proyectil.instance()
+	nuevoProyectil1.global_position = Vector2(616,100)
+	get_parent().add_child(nuevoProyectil1)
+	
+	var nuevoProyectil2 = proyectil.instance()
+	nuevoProyectil2.global_position = Vector2(616,260)
+	get_parent().add_child(nuevoProyectil2)
 
 func _on_timerAtaque_timeout():
 	var numeroAleatorio = randf()

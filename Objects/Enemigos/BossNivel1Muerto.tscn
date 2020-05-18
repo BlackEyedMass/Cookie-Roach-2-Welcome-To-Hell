@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Enemigos/Nivel1/spr_nivel_1_avispa_jefe.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Nivel1Boss/BossNivel1MuertoControl.gd" type="Script" id=2]
+[ext_resource path="res://ParticleSystems/ExplosionL.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ParticleSystems/ExplosionS.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.960938, 0.204575, 0.0300293, 1, 1, 0.470588, 0, 0 )
@@ -174,22 +176,7 @@ frame = 2
 
 [node name="Explosiones" type="Node2D" parent="."]
 
-[node name="Explosion1" type="CPUParticles2D" parent="Explosiones"]
-position = Vector2( -32.6134, -5.01744 )
-emitting = false
-amount = 40
-lifetime = 0.5
-one_shot = true
-explosiveness = 1.0
-local_coords = false
-emission_shape = 1
-emission_sphere_radius = 1.0
-spread = 180.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 100.0
-scale_amount = 10.0
-scale_amount_random = 1.0
-color_ramp = SubResource( 1 )
+[node name="Explosion1" parent="Explosiones" instance=ExtResource( 4 )]
 
 [node name="Explosion2" type="CPUParticles2D" parent="Explosiones"]
 position = Vector2( -2.50873, 28.014 )
@@ -310,22 +297,7 @@ scale_amount = 10.0
 scale_amount_random = 1.0
 color_ramp = SubResource( 1 )
 
-[node name="Explosion9" type="CPUParticles2D" parent="Explosiones"]
-position = Vector2( -24.142, 0.934649 )
-emitting = false
-amount = 40
-lifetime = 2.0
-one_shot = true
-explosiveness = 1.0
-local_coords = false
-emission_shape = 1
-emission_sphere_radius = 1.0
-spread = 180.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 100.0
-scale_amount = 30.0
-scale_amount_random = 1.0
-color_ramp = SubResource( 1 )
+[node name="Explosion9" parent="Explosiones" instance=ExtResource( 3 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "anim_jefe_1_muerte"

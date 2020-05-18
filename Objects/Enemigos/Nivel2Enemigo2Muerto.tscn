@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Enemigos/Nivel2/Lagarto_2_muerto.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Nivel2Enemigo2/Nivel2Enemigo2MuertoControl.gd" type="Script" id=2]
+[ext_resource path="res://ParticleSystems/Smoke.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 18.6838
+
+[node name="Nivel2Enemigo2Muerto" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Cuerpo" type="RigidBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Cuerpo"]
+texture = ExtResource( 1 )
+offset = Vector2( -9.01287, 8.58733 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cuerpo"]
+position = Vector2( -0.427185, 12.3884 )
+shape = SubResource( 1 )
+
+[node name="CPUParticles2D" parent="Cuerpo" instance=ExtResource( 3 )]
+position = Vector2( -1.54969, 28.2819 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

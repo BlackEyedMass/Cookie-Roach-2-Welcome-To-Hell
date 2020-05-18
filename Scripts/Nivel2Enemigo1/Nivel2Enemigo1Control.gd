@@ -7,10 +7,14 @@ var atacando = false
 
 var velocidad
 
+export(PackedScene)var cuerpo
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	salud = 4
 	velocidad = 1
+	
+	$Nivel2Enemigo1Cuerpo.rotation_degrees = rand_range(0.0,360.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,8 +23,8 @@ func _process(delta):
 		return
 	else:
 		var instanciaJugador = jugador[0]
-		look_at(instanciaJugador.global_position)
-		rotation_degrees = rotation_degrees + 180
+		$Rotable.look_at(instanciaJugador.global_position)
+		$Rotable.rotation_degrees = $Rotable.rotation_degrees + 180
 		
 		var distanciaAJugador = instanciaJugador.global_position - global_position
 		
@@ -39,3 +43,9 @@ func _on_TiempoEntreAtaques_timeout():
 
 func _on_Lengua_lengua_destruida():
 	morir(false)
+
+func _exit_tree():
+	var nuevoCuerpo = cuerpo.instance()
+	nuevoCuerpo.position = position
+	nuevoCuerpo.rotation_degrees = $Nivel2Enemigo1Cuerpo.rotation_degrees
+	get_parent().add_child(nuevoCuerpo)

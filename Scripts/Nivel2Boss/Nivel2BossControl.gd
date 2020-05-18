@@ -6,6 +6,8 @@ var esperaEntreAtaques = 10
 
 signal derrotado
 
+export(PackedScene)var cuerpo
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var jugador = (get_tree().get_nodes_in_group("jugador"))
@@ -17,12 +19,6 @@ func _ready():
 		var cadenciaDisparoJugador = instanciaJugador.cadenciaDisparo
 		
 		salud = round((saludBase * damageJugador) * (1 + cadenciaDisparoJugador))
-		
-		var controlador = find_parent("Control")
-		connect("derrotado",controlador,"_on_jefeNivel2_derrotado")
-		
-		var controladorNivel2 = find_parent("Nivel2")
-		connect("derrotado",controladorNivel2,"_on_jefeNivel2_derrotado")
 	
 	
 
@@ -36,4 +32,8 @@ func _process(delta):
 		esperaEntreAtaques = 4
 
 func _exit_tree():
-	emit_signal("derrotado")
+	
+	var nuevoCuerpo = cuerpo.instance()
+	nuevoCuerpo.position = position
+	get_parent().add_child(nuevoCuerpo)
+

@@ -38,7 +38,7 @@ func _ready():
 	OS.set_window_maximized(true)
 	randomize()
 	#Al iniciar el juego carga el primer nivel en la lista
-	cambiarNivel(0)
+	cambiarNivel(5)
 
 func _input(event):
 	#(DEBUG) Botón que libera el mouse automáticamente

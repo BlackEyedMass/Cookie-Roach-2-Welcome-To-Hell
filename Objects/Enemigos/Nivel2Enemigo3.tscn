@@ -1,12 +1,47 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Sprites/Enemigos/spr_enemigo_prueba.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Enemigos/Nivel2/Lagarto_3.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Nivel2Enemigo3/Nivel2Enemigo3Control.gd" type="Script" id=2]
 [ext_resource path="res://Objects/Enemigos/Proyectiles/ProyectilEnemigoTargetJugador.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/PowerUp.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Enemigos/Nivel2Enemigo3Muerto.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12.0377, 12.0821 )
+extents = Vector2( 20.9437, 6.60853 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "anim_nivel_2_enemigo_3_arma_disparando"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Arma:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "anim_nivel_2_enemigo_3_cuerpo"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
 
 [node name="Nivel2Enemigo3" type="Area2D" groups=[
 "enemigos",
@@ -14,13 +49,31 @@ extents = Vector2( 12.0377, 12.0821 )
 script = ExtResource( 2 )
 powerUp = ExtResource( 4 )
 proyectil = ExtResource( 3 )
+cuerpo = ExtResource( 5 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Arma" type="Sprite" parent="."]
+position = Vector2( 7.36475, -0.0285988 )
 texture = ExtResource( 1 )
+offset = Vector2( -7.36475, 0.0285988 )
+hframes = 5
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="TiempoEntreAtaques" type="Timer" parent="."]
 autostart = true
+
+[node name="AnimacionArma" type="AnimationPlayer" parent="."]
+autoplay = "anim_nivel_2_enemigo_3_arma_disparando"
+anims/anim_nivel_2_enemigo_3_arma_disparando = SubResource( 2 )
+
+[node name="Cuerpo" type="Sprite" parent="."]
+z_index = -1
+texture = ExtResource( 1 )
+hframes = 5
+
+[node name="AnimacionCuerpo" type="AnimationPlayer" parent="."]
+autoplay = "anim_nivel_2_enemigo_3_cuerpo"
+anims/anim_nivel_2_enemigo_3_cuerpo = SubResource( 3 )
 [connection signal="timeout" from="TiempoEntreAtaques" to="." method="_on_TiempoEntreAtaques_timeout"]

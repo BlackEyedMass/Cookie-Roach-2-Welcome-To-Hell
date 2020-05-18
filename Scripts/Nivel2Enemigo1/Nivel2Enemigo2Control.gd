@@ -11,6 +11,8 @@ var velocidadVertical
 var limiteSuperior = 50
 var limiteInferior = 310
 
+export(PackedScene) var cuerpo
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	salud = 4
@@ -24,8 +26,8 @@ func _process(delta):
 		return
 	else:
 		var instanciaJugador = jugador[0]
-		look_at(instanciaJugador.global_position)
-		rotation_degrees = rotation_degrees + 180
+		$Rotables.look_at(instanciaJugador.global_position)
+		$Rotables.rotation_degrees = $Rotables.rotation_degrees + 180
 		
 		var distanciaAJugador = instanciaJugador.global_position - global_position
 		
@@ -50,3 +52,8 @@ func _on_TiempoEntreAtaques_timeout():
 
 func _on_Lengua_lengua_destruida():
 	morir(false)
+
+func _exit_tree():
+	var nuevoCuerpo = cuerpo.instance()
+	nuevoCuerpo.position = position
+	get_parent().call_deferred("add_child",nuevoCuerpo)

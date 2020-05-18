@@ -7,6 +7,7 @@ var atacando = false
 var velocidad
 
 export(PackedScene)var proyectil
+export(PackedScene)var cuerpo
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,8 +22,8 @@ func _process(delta):
 		$TiempoEntreAtaques.stop()
 	else:
 		var instanciaJugador = jugador[0]
-		look_at(instanciaJugador.global_position)
-		rotation_degrees = rotation_degrees + 180
+		$Arma.look_at(instanciaJugador.global_position)
+		$Arma.rotation_degrees = $Arma.rotation_degrees + 180
 		
 	position.x -= velocidad
 
@@ -31,4 +32,7 @@ func _on_TiempoEntreAtaques_timeout():
 	nuevoProyectil.position = position
 	get_parent().add_child(nuevoProyectil)
 
-
+func _exit_tree():
+	var nuevoCuerpo = cuerpo.instance()
+	nuevoCuerpo.position = position
+	get_parent().call_deferred("add_child",nuevoCuerpo)

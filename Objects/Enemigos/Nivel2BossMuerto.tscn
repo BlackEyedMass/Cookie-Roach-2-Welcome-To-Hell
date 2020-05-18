@@ -1,0 +1,195 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://ParticleSystems/ExplosionL.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Enemigos/Nivel2JefeCuerpo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ParticleSystems/ExplosionS.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Enemigos/Nivel2/Lagarto_jefe_cabeza.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Nivel2Boss/Nivel2BossMuertoControl.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "anim_nivel_2_jefe_muerte"
+length = 7.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cabeza:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 5.5, 5.6, 5.7, 5.8, 5.9, 6, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 7, 7.1, 7.2, 7.3, 7.4, 7.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -1.66479, -1.90262 ), Vector2( 1.66479, 4.99438 ), Vector2( 2.14044, -1.18914 ), Vector2( -1.18914, 0 ), Vector2( -1.66479, 4.75655 ), Vector2( 0.951302, -1.66479 ), Vector2( -3.56742, 0.475655 ), Vector2( 1.90261, 2.85393 ), Vector2( 1.90261, -2.6161 ), Vector2( -0.951317, 1.66479 ), Vector2( 0.951309, 1.42696 ), Vector2( -1.90263, -1.18914 ), Vector2( -1.18915, 0.951305 ), Vector2( 0.475647, -0.237831 ), Vector2( -0.404976, -0.242984 ), Vector2( -0.161991, 0.161992 ), Vector2( -0.242985, -0.242984 ), Vector2( 0.404976, -0.0809946 ), Vector2( 0.0809975, 0.16199 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( -1.66479, -1.90262 ), Vector2( 1.66479, 4.99438 ), Vector2( 2.14044, -1.18914 ), Vector2( -1.18914, 0 ), Vector2( -1.66479, 4.75655 ), Vector2( 0.951302, -1.66479 ), Vector2( -3.56742, 0.475655 ), Vector2( 1.90261, 2.85393 ), Vector2( 1.90261, -2.6161 ), Vector2( -0.951317, 1.66479 ), Vector2( 0.951309, 1.42696 ), Vector2( -1.90263, -1.18914 ), Vector2( -1.18915, 0.951305 ), Vector2( 0.475647, -0.237831 ), Vector2( -0.404976, -0.242984 ), Vector2( -0.161991, 0.161992 ), Vector2( -0.242985, -0.242984 ), Vector2( 0.404976, -0.0809946 ), Vector2( 0.0809975, 0.16199 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particulas/Explosion1:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particulas/Explosion2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particulas/Explosion3:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Particulas/Explosion4:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 4.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Particulas/Explosion5:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 4.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Particulas/Explosion6:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Particulas/Explosion7:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 5.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Particulas/Explosion8:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 5.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Particulas/Explosion9:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 5.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Cabeza:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 5.5, 7.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "anim_nivel_2_jefe_muerte_idle"
+loop = true
+
+[node name="Nivel2BossMuerto" type="Node2D" groups=[
+"enemigos",
+]]
+script = ExtResource( 5 )
+
+[node name="Nivel2JefeCuerpo" parent="." instance=ExtResource( 2 )]
+
+[node name="Cabeza" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+offset = Vector2( -30.254, -2.23117 )
+hframes = 3
+frame = 2
+
+[node name="Particulas" type="Node2D" parent="."]
+
+[node name="Explosion1" parent="Particulas" instance=ExtResource( 3 )]
+position = Vector2( -22.5758, -17.206 )
+
+[node name="Explosion2" parent="Particulas" instance=ExtResource( 3 )]
+position = Vector2( 8.24753, 89.3115 )
+
+[node name="Explosion3" parent="Particulas" instance=ExtResource( 3 )]
+position = Vector2( 1.59595, -95.4279 )
+
+[node name="Explosion4" parent="Particulas" instance=ExtResource( 3 )]
+position = Vector2( -32.6041, 10.9724 )
+
+[node name="Explosion5" parent="Particulas" instance=ExtResource( 3 )]
+position = Vector2( 13.946, 71.7725 )
+
+[node name="Explosion6" parent="Particulas" instance=ExtResource( 3 )]
+position = Vector2( -45.9041, -9.92768 )
+
+[node name="Explosion7" parent="Particulas" instance=ExtResource( 3 )]
+position = Vector2( -16.4541, -108.728 )
+
+[node name="Explosion8" parent="Particulas" instance=ExtResource( 3 )]
+position = Vector2( -11.7041, 86.0226 )
+
+[node name="Explosion9" parent="Particulas" instance=ExtResource( 1 )]
+position = Vector2( -14.642, -3.81535 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "anim_nivel_2_jefe_muerte"
+anims/anim_nivel_2_jefe_muerte = SubResource( 1 )
+anims/anim_nivel_2_jefe_muerte_idle = SubResource( 2 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

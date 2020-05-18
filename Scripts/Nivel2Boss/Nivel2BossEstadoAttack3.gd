@@ -33,5 +33,6 @@ func _on_timerAtaque_timeout():
 	
 	if numeroAleatorio > 0.5:
 		exit("Attack1")
+		fsm.padre.get_node("AnimationPlayer").play("anim_nivel_2_boss_ataque_3_salida")
 	else:
 		exit("Attack3Setup")
