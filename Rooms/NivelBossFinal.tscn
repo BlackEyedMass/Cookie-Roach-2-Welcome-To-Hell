@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/CascaronNivelFinal/NivelBossFinalCreadorEnemigosControl.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Enemigos/NivelFinalCascaron.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Jugador.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/BossFinal/NivelBossFinalControl.gd" type="Script" id=4]
 [ext_resource path="res://Objects/Enemigos/BossFinal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fondos/Nivel4/bg_nivel4_2.png" type="Texture" id=6]
+[ext_resource path="res://Fondos/Nivel4/bg_nivel4_1.png" type="Texture" id=7]
 
 [node name="NivelBossFinal" type="Node2D" groups=[
 "jugable",
@@ -17,3 +19,19 @@ script = ExtResource( 1 )
 enemigo = ExtResource( 2 )
 
 [node name="Jugador" parent="." instance=ExtResource( 3 )]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Capa1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1280, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Capa1"]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Capa2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1280, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Capa2"]
+texture = ExtResource( 6 )
+centered = false

@@ -9,6 +9,7 @@ var multiplicador = 20
 export(PackedScene) var proyectil
 
 func enter():
+	fsm.padre.get_node("AnimationPlayer").play("anim_nivel_4_jefe_disparando_1")
 	
 	var timer = Timer.new()
 	timer.autostart = true

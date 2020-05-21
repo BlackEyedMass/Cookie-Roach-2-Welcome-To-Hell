@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Sprites/Enemigos/spr_enemigo_prueba.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Enemigos/Nivel4/Cucaracha_malvada.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/BossFinal/BossFinalEstadoMoving1.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/StateMachine.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/BossFinal/BossFinalEstadoStart.gd" type="Script" id=4]
@@ -12,16 +12,67 @@
 [ext_resource path="res://Objects/Enemigos/Proyectiles/ProyectilEnemigoLineaRecta.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Enemigos/Proyectiles/ProyectilEnemigoLaser.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/BossFinal/BossFinalControl.gd" type="Script" id=12]
+[ext_resource path="res://Objects/Enemigos/BossFinalMuerto.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.3588, 11.4726 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "anim_nivel_4_jefe_disparando_1"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "anim_nivel_4_jefe_disparando_2"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 5 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
 [node name="BossFinal" type="Area2D"]
 script = ExtResource( 12 )
+cuerpo = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 2, 1 )
 texture = ExtResource( 1 )
+hframes = 7
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -47,3 +98,8 @@ proyectil = ExtResource( 9 )
 [node name="Moving3Idle" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
 proyectil = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/anim_nivel_4_jefe_disparando_1 = SubResource( 2 )
+anims/anim_nivel_4_jefe_disparando_2 = SubResource( 3 )
+anims/anim_nivel_4_jefe_neutral = SubResource( 4 )

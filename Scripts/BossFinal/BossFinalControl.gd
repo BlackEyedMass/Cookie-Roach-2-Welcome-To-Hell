@@ -8,6 +8,8 @@ signal derrotado
 
 var puedeEmitir
 
+export(PackedScene)var cuerpo
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	puedeEmitir = true
@@ -38,3 +40,6 @@ func _process(delta):
 func _exit_tree():
 	emit_signal("derrotado")
 	
+	var nuevoCuerpo = cuerpo.instance()
+	nuevoCuerpo.position = position
+	get_parent().call_deferred("add_child",nuevoCuerpo)

@@ -17,8 +17,14 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	$ParallaxBackground/Capa1.position.x -= 0.20
+	if $ParallaxBackground/Capa1.position.x <= -1280:
+		$ParallaxBackground/Capa1.position.x = 0
+	
+	$ParallaxBackground/Capa2.position.x -= 0.30
+	if $ParallaxBackground/Capa2.position.x <= -1280:
+		$ParallaxBackground/Capa2.position.x = 0
 
 func _on_timerBoss_timeout():
 	$NivelBossFinalCreadorEnemigos.activo = false

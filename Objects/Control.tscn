@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Control.gd" type="Script" id=1]
 [ext_resource path="res://GUI/PantallaGameOver.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GUI/AdvertenciaBoss.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/Efectos/sfx_know_your_place.wav" type="AudioStream" id=4]
 
 [node name="Control" type="Node2D"]
+z_index = 10
 script = ExtResource( 1 )
 pantallaGameOver = ExtResource( 2 )
 bossAdvertencia = ExtResource( 3 )
 
 [node name="Nivel" type="Node2D" parent="."]
+
+[node name="KnowYourPlace" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0

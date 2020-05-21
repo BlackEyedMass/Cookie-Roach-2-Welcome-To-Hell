@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mus_discurso.ogg-d3aba5756c2d44552d77d2aea15f3720.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Musica/mus_discurso.ogg"
+dest_files=[ "res://.import/mus_discurso.ogg-d3aba5756c2d44552d77d2aea15f3720.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

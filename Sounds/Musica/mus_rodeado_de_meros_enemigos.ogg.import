@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mus_rodeado_de_meros_enemigos.ogg-84758fae4db90683a19286693f028c31.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Musica/mus_rodeado_de_meros_enemigos.ogg"
+dest_files=[ "res://.import/mus_rodeado_de_meros_enemigos.ogg-84758fae4db90683a19286693f028c31.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

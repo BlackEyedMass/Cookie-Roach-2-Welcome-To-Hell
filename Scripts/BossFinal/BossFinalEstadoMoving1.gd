@@ -16,6 +16,8 @@ func _ready():
 	pass
 
 func enter():
+	fsm.padre.get_node("AnimationPlayer").play("anim_nivel_4_jefe_disparando_2")
+	
 	var timerCambio = Timer.new()
 	timerCambio.autostart = true
 	timerCambio.wait_time = rand_range(2,2.5)

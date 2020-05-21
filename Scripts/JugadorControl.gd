@@ -42,7 +42,7 @@ func _process(_delta):
 	
 	if modoDios:
 		escudos = 3
-		damage = 10
+		damage = 5
 		cadenciaDisparo = 0.1
 		velocidadDisparo = 20
 	

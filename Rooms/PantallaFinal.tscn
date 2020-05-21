@@ -1,28 +1,70 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/BossFinal/PantallaFinalControl.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/Musica/mus_creditos.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/Efectos/sfx_explosion_nuclear.wav" type="AudioStream" id=3]
+[ext_resource path="res://Fondos/PantallaTitulo/bg_pantallatitulo_no_logo.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "anim_creditos"
+length = 220.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 180 ), Vector2( 314.559, 178.64 ), Vector2( 322.721, 181.36 ), Vector2( 313.896, 182.648 ), Vector2( 316.896, 176.648 ), Vector2( 313.896, 180.648 ), Vector2( 320.896, 183.648 ), Vector2( 317.896, 185.648 ), Vector2( 312.896, 183.648 ), Vector2( 321.896, 184.648 ), Vector2( 319.843, 186.188 ), Vector2( 320.357, 186.702 ), Vector2( 318.303, 180.541 ), Vector2( 320.357, 181.055 ), Vector2( 319.33, 180.541 ), Vector2( 320, 180 ), Vector2( 315.089, 182.455 ), Vector2( 316.317, 183.683 ), Vector2( 320.961, 181.693 ), Vector2( 319.634, 181.693 ), Vector2( 320.961, 178.376 ), Vector2( 322.288, 181.693 ), Vector2( 320.961, 179.703 ), Vector2( 320.297, 181.693 ), Vector2( 319.634, 179.703 ), Vector2( 320.297, 180.366 ), Vector2( 320, 180 ) ]
+}
 
 [node name="PantallaFinal" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Control" type="Control" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Control"]
-margin_left = 277.895
-margin_top = 164.211
-margin_right = 342.895
-margin_bottom = 178.211
-text = "Has ganao"
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[node name="Musica" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "anim_creditos"
+anims/anim_creditos = SubResource( 1 )
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -20.0
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 320, 180 )
+current = true
+zoom = Vector2( 0.95, 0.95 )

@@ -20,15 +20,18 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	$ParallaxBackground/Capa1.position.x -= 0.20
+	if $ParallaxBackground/Capa1.position.x <= -1280:
+		$ParallaxBackground/Capa1.position.x = 0
+	
+	$ParallaxBackground/Capa2.position.x -= 0.30
+	if $ParallaxBackground/Capa2.position.x <= -1280:
+		$ParallaxBackground/Capa2.position.x = 0
 
 func on_BossFinal_derrotado():
-	var timerCambio = Timer.new()
-	timerCambio.autostart = true
-	timerCambio.wait_time = 3
-	timerCambio.connect("timeout",self,"_on_timerCambio_timeout")
-	call_deferred("add_child",timerCambio)
+	$AnimationPlayer.play("anim_desvanecer_a_blanco")
 
-func _on_timerCambio_timeout():
+func _on_AnimationPlayer_animation_finished(anim_name):
+	
 	control.cambiarNivel(10)

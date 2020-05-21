@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/CascaronNivelFinal/NivelFinalCascaronControl.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Enemigos/spr_enemigo_prueba.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Enemigos/Nivel4/Cascaron_nivel_final.png" type="Texture" id=2]
 [ext_resource path="res://Objects/PowerUp.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]

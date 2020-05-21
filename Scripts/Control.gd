@@ -105,6 +105,7 @@ func _on_iniciar_secuencia_final():
 	timerCambio.wait_time = 5
 	timerCambio.connect("timeout",self,"_on_timerCambio_timeout")
 	add_child(timerCambio)
+	$KnowYourPlace.play()
 
 func _on_timerCambio_timeout():
 	cambiarNivel(8)

@@ -11,6 +11,8 @@ var velocidadDisparo = 4
 export(PackedScene) var proyectil
 
 func enter():
+	fsm.padre.get_node("AnimationPlayer").play("anim_nivel_4_jefe_disparando_1")
+	
 	var timerCambio = Timer.new()
 	timerCambio.autostart = true
 	timerCambio.wait_time = rand_range(1,2)

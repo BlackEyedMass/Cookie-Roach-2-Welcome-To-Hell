@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mus_dankula_2.ogg-33fc10fa6f25cc2684ceb90df6e5b741.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Musica/mus_dankula_2.ogg"
+dest_files=[ "res://.import/mus_dankula_2.ogg-33fc10fa6f25cc2684ceb90df6e5b741.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
