@@ -5,6 +5,7 @@ var fsm: StateMachine
 export(PackedScene) var proyectil
 
 func enter():
+	fsm.padre.get_node("AnimationPlayer").stop(false)
 	
 	var nuevoProyectil = proyectil.instance()
 	nuevoProyectil.position = fsm.padre.position

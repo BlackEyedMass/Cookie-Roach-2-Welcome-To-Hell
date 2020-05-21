@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Sprites/Enemigos/spr_enemigo_prueba.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Enemigos/Nivel3/Arana_3.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/StateMachine.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Nivel3Boss/Nivel3BossCriaEstadoAwake.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Nivel3Boss/Nivel3BossCriaEstadoAttack.gd" type="Script" id=4]
@@ -9,10 +9,46 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.8954, 11.8229 )
 
+[sub_resource type="Animation" id=3]
+resource_name = "anim_nivel_3_jefe_cria_attack"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 4 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "anim_nivel_3_jefe_cria_awake"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 2 ]
+}
+
 [node name="Nivel3BossCria" type="Area2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+hframes = 7
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -26,3 +62,7 @@ script = ExtResource( 3 )
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource( 4 )
 tela = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/anim_nivel_3_jefe_cria_attack = SubResource( 3 )
+anims/anim_nivel_3_jefe_cria_awake = SubResource( 2 )

@@ -1,0 +1,244 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ParticleSystems/ExplosionL.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ParticleSystems/ExplosionS.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Enemigos/Nivel3/Arana_jefe.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Nivel3Boss/Nivel3BossMuertoControl.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "anim_nivel_3_jefe_muerte"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6, 6.1, 6.2, 6.3, 6.4, 6.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 2.25936, -1.80749 ), Vector2( -3.09855, 1.71066 ), Vector2( -2.18239, -4.06933 ), Vector2( 1.16258, 1.69225 ), Vector2( 2.18658, -2.3025 ), Vector2( -4.13235, 1.09085 ), Vector2( 1.97519, 0.517769 ), Vector2( -1.43481, -2.03225 ), Vector2( -0.100149, 3.22867 ), Vector2( 1.68703, -0.977946 ), Vector2( -0.445274, 0.823608 ), Vector2( -0.333956, -0.326979 ), Vector2( 0.249706, 0.254355 ), Vector2( -0.064081, -0.156227 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 2.25936, -1.80749 ), Vector2( -3.09855, 1.71066 ), Vector2( -2.18239, -4.06933 ), Vector2( 1.16258, 1.69225 ), Vector2( 2.18658, -2.3025 ), Vector2( -4.13235, 1.09085 ), Vector2( 1.97519, 0.517769 ), Vector2( -1.43481, -2.03225 ), Vector2( -0.100149, 3.22867 ), Vector2( 1.68703, -0.977946 ), Vector2( -0.445274, 0.823608 ), Vector2( -0.333956, -0.326979 ), Vector2( 0.249706, 0.254355 ), Vector2( -0.064081, -0.156227 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 6.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Explosiones/Explosion1:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Explosiones/Explosion2:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Explosiones/Explosion3:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Explosiones/Explosion4:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 3.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Explosiones/Explosion5:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 3.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Explosiones/Explosion6:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 3.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Explosiones/Explosion7:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 3.9 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Explosiones/Explosion8:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 4.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Explosiones/Explosion9:emitting")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 4.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Explosiones/Explosion10:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 4.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Explosiones/Explosion11:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 4.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Explosiones/Explosion12:emitting")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/14/type = "method"
+tracks/14/path = NodePath(".")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="Nivel3BossMuerto" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 3 )
+vframes = 6
+hframes = 5
+frame = 28
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "anim_nivel_3_jefe_muerte"
+anims/anim_nivel_3_jefe_muerte = SubResource( 1 )
+
+[node name="Explosiones" type="Node2D" parent="."]
+
+[node name="Explosion1" parent="Explosiones" instance=ExtResource( 2 )]
+position = Vector2( -16.846, -8.52132 )
+
+[node name="Explosion2" parent="Explosiones" instance=ExtResource( 2 )]
+position = Vector2( 13.521, 18.0497 )
+
+[node name="Explosion3" parent="Explosiones" instance=ExtResource( 2 )]
+position = Vector2( 15.5649, -9.1053 )
+
+[node name="Explosion4" parent="Explosiones" instance=ExtResource( 2 )]
+position = Vector2( -7.21031, 7.53811 )
+
+[node name="Explosion5" parent="Explosiones" instance=ExtResource( 2 )]
+position = Vector2( -34.3653, 4.61821 )
+
+[node name="Explosion6" parent="Explosiones" instance=ExtResource( 2 )]
+position = Vector2( 3.30133, -6.4774 )
+
+[node name="Explosion7" parent="Explosiones" instance=ExtResource( 2 )]
+position = Vector2( 21.9887, 9.58204 )
+
+[node name="Explosion8" parent="Explosiones" instance=ExtResource( 2 )]
+position = Vector2( -2.53848, -17.573 )
+
+[node name="Explosion9" parent="Explosiones" instance=ExtResource( 2 )]
+position = Vector2( -18.0139, 10.166 )
+
+[node name="Explosion10" parent="Explosiones" instance=ExtResource( 2 )]
+position = Vector2( 8.55713, 6.07816 )
+
+[node name="Explosion11" parent="Explosiones" instance=ExtResource( 2 )]
+position = Vector2( 10.6011, -20.7849 )
+
+[node name="Explosion12" parent="Explosiones" instance=ExtResource( 1 )]
+position = Vector2( 0, 0 )

@@ -3,19 +3,21 @@ extends Node
 var fsm: StateMachine
 
 func enter():
-	var timer = Timer.new()
-	timer.autostart = true
-	timer.wait_time = 1
-	timer.connect("timeout",self,"_on_timer_timeout")
-	add_child(timer)
+	fsm.padre.get_node("AnimationPlayer").play("anim_nivel_3_jefe_attack_2_setup")
+	
+#	var timer = Timer.new()
+#	timer.autostart = true
+#	timer.wait_time = 1
+#	timer.connect("timeout",self,"_on_timer_timeout")
+#	add_child(timer)
 
 func exit(next_state):
-	var contadores = get_child_count()
-	
-	if contadores > 0:
-		for n in get_children():
-			remove_child(n)
-			n.call_deferred('free')
+#	var contadores = get_child_count()
+#
+#	if contadores > 0:
+#		for n in get_children():
+#			remove_child(n)
+#			n.call_deferred('free')
 	
 	fsm.change_to(next_state)
 
@@ -29,6 +31,6 @@ func process(delta):
 		var instanciaJugador = jugador[0]
 		fsm.padre.look_at(instanciaJugador.global_position)
 		fsm.padre.rotation_degrees = fsm.padre.rotation_degrees + 180
-
-func _on_timer_timeout():
-	exit("Attack2")
+#
+#func _on_timer_timeout():
+#	exit("Attack2")

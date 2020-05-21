@@ -9,6 +9,7 @@ var multiplicador = 20
 export(PackedScene) var proyectil
 
 func enter():
+	fsm.padre.get_node("AnimationPlayer").play("anim_nivel_3_jefe_attack_1")
 	
 	var nuevoProyectil = proyectil.instance()
 	nuevoProyectil.position = fsm.padre.position

@@ -12,6 +12,8 @@ var distanciaAJugador = Vector2()
 export(PackedScene) var rigidBody
 
 func enter():
+	fsm.padre.get_node("AnimationPlayer").play("anim_nivel_3_enemigo_1_pounce")
+	
 	var jugador = (get_tree().get_nodes_in_group("jugador"))
 	if jugador.size() == 0:
 		return

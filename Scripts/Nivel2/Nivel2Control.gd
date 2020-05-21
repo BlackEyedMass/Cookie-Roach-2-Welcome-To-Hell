@@ -2,10 +2,14 @@ extends Node2D
 
 var control
 
+var velocidadFondo
+
 export(PackedScene) var boss
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	velocidadFondo = 1
+	
 	var timerBoss = Timer.new()
 	timerBoss.autostart = true
 	timerBoss.wait_time = 45
@@ -17,10 +21,14 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	$ParallaxBackground/Capa1.position.x -= velocidadFondo
+	
+	if $ParallaxBackground/Capa1.position.x < -4453:
+		$ParallaxBackground/Capa1.position.x = -3816
 
 func _on_timerBoss_timeout():
+	
 	$Nivel2CreadorEnemigos.activo = false
 	
 	control.advertenciaBoss()

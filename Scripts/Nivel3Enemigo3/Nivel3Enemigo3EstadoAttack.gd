@@ -5,7 +5,7 @@ var fsm: StateMachine
 export(PackedScene) var tela
 
 func enter():
-	pass
+	fsm.padre.get_node("AnimationPlayer").play("anim_nivel_3_enemigo_3_attack")
 
 func exit(next_state):
 	fsm.change_to(next_state)

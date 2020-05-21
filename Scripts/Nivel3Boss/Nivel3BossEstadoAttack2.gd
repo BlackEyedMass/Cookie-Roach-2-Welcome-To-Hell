@@ -5,6 +5,8 @@ var fsm: StateMachine
 var posicionJugador = Vector2.ZERO
 
 func enter():
+	fsm.padre.get_node("AnimationPlayer").play("anim_nivel_3_jefe_attack_2")
+	
 	var timer = Timer.new()
 	timer.autostart = true
 	timer.wait_time = 2

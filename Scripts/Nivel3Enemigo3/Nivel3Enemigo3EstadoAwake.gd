@@ -3,6 +3,8 @@ extends Node
 var fsm: StateMachine
 
 func enter():
+	fsm.padre.get_node("AnimationPlayer").play("anim_nivel_3_enemigo_3_awake")
+	
 	var timer = Timer.new()
 	timer.autostart = true
 	timer.wait_time = 1

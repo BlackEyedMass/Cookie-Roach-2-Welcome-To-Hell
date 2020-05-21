@@ -5,12 +5,15 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
+var siguienteNivel
+
+var control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	var control = find_parent("Control")
+	control = find_parent("Control")
 	
 	if control.nivel1Superado:
 		$BotonNivel1.disabled = true
@@ -30,23 +33,37 @@ func _ready():
 #	pass
 
 func _on_BotonNivel1_pressed():
-	var control = find_parent("Control")
 	Global.cambiarNivelSeleccionado(1)
-	control.cambiarNivel(11)
+	siguienteNivel = 11
+	reproducirAnimacion()
+#	control.cambiarNivel(11)
 
 
 func _on_BotonNivel2_pressed():
-	var control = find_parent("Control")
 	Global.cambiarNivelSeleccionado(2)
-	control.cambiarNivel(11)
+	siguienteNivel = 11
+	reproducirAnimacion()
+#	control.cambiarNivel(11)
 
 
 func _on_BotonNivel3_pressed():
-	var control = find_parent("Control")
 	Global.cambiarNivelSeleccionado(3)
-	control.cambiarNivel(11)
+	siguienteNivel = 11
+	reproducirAnimacion()
+#	control.cambiarNivel(11)
 
 
 func _on_BotonNivel4_pressed():
 	var control = find_parent("Control")
-	control.cambiarNivel(7)
+	siguienteNivel = 7
+#	control.cambiarNivel(7)
+
+func reproducirAnimacion():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$AnimationPlayer.play("anim_nivel_seleccionado")
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "anim_nivel_seleccionado":
+		control.cambiarNivel(siguienteNivel)
+	else:
+		return

@@ -5,9 +5,11 @@ var limite = 550
 
 export(PackedScene) var cria
 
+var eclosionado
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	eclosionado = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,7 +20,9 @@ func _process(delta):
 		_eclosionar()
 
 func _eclosionar():
-	var nuevaCria = cria.instance()
-	nuevaCria.position = position
-	get_parent().add_child(nuevaCria)
-	call_deferred('free')
+	if !eclosionado:
+		var nuevaCria = cria.instance()
+		nuevaCria.position = position
+		get_parent().add_child(nuevaCria)
+		$AnimationPlayer.play("anim_nivel_3_jefe_huevo_abierto")
+		eclosionado = true

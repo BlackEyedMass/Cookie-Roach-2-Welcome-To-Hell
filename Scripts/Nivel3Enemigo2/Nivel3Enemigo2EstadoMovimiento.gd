@@ -6,8 +6,11 @@ var nuevaPosicion = Vector2.ZERO
 var movimiento = Vector2.ZERO
 var multiplicador = 20
 
+var punto = Vector2.ZERO
 
 func enter():
+	fsm.padre.get_node("AnimationPlayer").play("anim_nivel_3_enemigo_2_movimiento")
+	
 	var timer = Timer.new()
 	timer.autostart = true
 	timer.wait_time = rand_range(0.25,0.75)
@@ -18,6 +21,12 @@ func enter():
 	nuevaPosicion.y = rand_range(-1,1)
 	
 	movimiento = nuevaPosicion * multiplicador
+	
+	punto = fsm.padre.position + movimiento
+	fsm.padre.get_node("Cuerpo").look_at(punto)
+	fsm.padre.rotation_degrees = fsm.padre.rotation_degrees + 180
+
+
 
 func exit(next_state):
 	var contadores = get_child_count()

@@ -3,6 +3,8 @@ extends Node
 var fsm: StateMachine
 
 func enter():
+	fsm.padre.get_node("AnimationPlayer").stop(false)
+	
 	var timer = Timer.new()
 	timer.autostart = true
 	timer.wait_time = rand_range(0.5,1.0)

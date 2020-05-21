@@ -20,9 +20,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Cookie Roach Welcome to Hell Edition"
+config/name="Cookie Roach 2 Welcome To Hell"
 run/main_scene="res://Objects/Control.tscn"
-config/icon="res://icon.png"
+config/icon="res://icono.png"
 
 [autoload]
 

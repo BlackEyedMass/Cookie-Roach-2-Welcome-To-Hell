@@ -146,7 +146,7 @@ tracks/1/keys = {
 "values": [ -20.068, 339.88 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "anim_nivel_2_boss_ataque_3_salida"
 length = 0.5
 tracks/0/type = "value"
@@ -174,7 +174,7 @@ tracks/1/keys = {
 "values": [ -32.0661, 0.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 11.8486, 11.8564 )
 
 [node name="Nivel2Boss" type="Area2D"]
@@ -195,7 +195,7 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/anim_bossnivel2_ataque_1 = SubResource( 2 )
 anims/anim_bossnivel2_ataque_3_setup = SubResource( 3 )
-anims/anim_nivel_2_boss_ataque_3_salida = SubResource( 5 )
+anims/anim_nivel_2_boss_ataque_3_salida = SubResource( 4 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -233,7 +233,7 @@ hframes = 2
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotable/Lengua"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Cabeza" type="Sprite" parent="Rotable"]
 position = Vector2( 29.9048, 0.0910797 )

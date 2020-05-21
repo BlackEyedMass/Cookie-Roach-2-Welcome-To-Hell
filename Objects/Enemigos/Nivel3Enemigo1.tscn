@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/StateMachine.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Nivel3Enemigo1/Nivel3Enemigo1EstadoIdle.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Nivel3Enemigo1/Nivel3Enemigo1EstadoPounce.gd" type="Script" id=3]
-[ext_resource path="res://Sprites/Enemigos/spr_enemigo_prueba.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Enemigos/Nivel3/Arana_1.png" type="Texture" id=4]
 [ext_resource path="res://Objects/Enemigos/Nivel3Enemigo1Body.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Nivel3Enemigo1/Nivel3Enemigo1Control.gd" type="Script" id=6]
 [ext_resource path="res://Objects/PowerUp.tscn" type="PackedScene" id=7]
@@ -11,12 +11,48 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.935, 11.924 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "anim_nivel_3_enemigo_1_idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 3, 2 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "anim_nivel_3_enemigo_1_pounce"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 5, 6 ]
+}
+
 [node name="Nivel3Enemigo1" type="Area2D"]
 script = ExtResource( 6 )
 powerUp = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
+hframes = 8
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -30,3 +66,8 @@ script = ExtResource( 2 )
 [node name="Pounce" type="Node" parent="StateMachine"]
 script = ExtResource( 3 )
 rigidBody = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "anim_nivel_3_enemigo_1_idle"
+anims/anim_nivel_3_enemigo_1_idle = SubResource( 2 )
+anims/anim_nivel_3_enemigo_1_pounce = SubResource( 3 )

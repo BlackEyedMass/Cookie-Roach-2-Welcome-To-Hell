@@ -38,7 +38,7 @@ func _ready():
 	OS.set_window_maximized(true)
 	randomize()
 	#Al iniciar el juego carga el primer nivel en la lista
-	cambiarNivel(5)
+	cambiarNivel(1)
 
 func _input(event):
 	#(DEBUG) Botón que libera el mouse automáticamente
@@ -111,3 +111,4 @@ func _on_timerCambio_timeout():
 
 func on_BossFinal_derrotado():
 	cambiarNivel(10)
+

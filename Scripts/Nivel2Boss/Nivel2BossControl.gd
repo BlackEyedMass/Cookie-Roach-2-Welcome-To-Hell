@@ -35,5 +35,5 @@ func _exit_tree():
 	
 	var nuevoCuerpo = cuerpo.instance()
 	nuevoCuerpo.position = position
-	get_parent().add_child(nuevoCuerpo)
+	get_parent().call_deferred("add_child",nuevoCuerpo)
 

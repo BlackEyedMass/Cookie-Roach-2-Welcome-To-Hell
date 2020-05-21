@@ -12,7 +12,7 @@ export(PackedScene)var cuerpo
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	salud = 4
-	velocidad = 1
+	velocidad = 1.5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

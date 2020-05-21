@@ -22,7 +22,6 @@ emitting = false
 amount = 16
 lifetime = 5.0
 randomness = 1.0
-local_coords = false
 scale_amount = 5.0
 scale_amount_random = 0.46
 color = Color( 1, 0, 0, 1 )

@@ -15,6 +15,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var jugador
+	
+
+	
+	jugador = (get_tree().get_nodes_in_group("jugador"))
+	if jugador.size() == 0:
+		return
+	else:
+		var instanciaJugador = jugador[0]
+		$SpriteArma.look_at(instanciaJugador.global_position)
+		$SpriteArma.rotation_degrees = $SpriteArma.rotation_degrees + 180
+	
 	position.x -= 1
 
 func _on_timerDisparos_timeout():
