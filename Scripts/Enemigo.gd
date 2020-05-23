@@ -57,7 +57,6 @@ func morir(justdestroy):
 		if puedeDropear:
 			var nuevoPowerUp = powerUp.instance()
 			nuevoPowerUp.position = position
-			nuevoPowerUp.obtenerGenerador(self)
 			get_parent().call_deferred('add_child',nuevoPowerUp)
 			
 		call_deferred('free')

@@ -5,7 +5,7 @@ var fsm : StateMachine
 var limiteSuperior = 50
 var limiteInferior = 310
 
-var velocidad = 2
+var velocidad = 4
 
 var posicionJugador = Vector2.ZERO
 var posicionActual = Vector2.ZERO

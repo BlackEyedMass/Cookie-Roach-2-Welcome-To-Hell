@@ -13,16 +13,11 @@ func _ready():
 
 func _exit_tree():
 	emit_signal("muerto")
-	print("RIP")
 	
 	var nuevoCadaver = cadaver.instance()
 	nuevoCadaver.generar(2)
 	nuevoCadaver.position = position
 	get_parent().call_deferred("add_child",nuevoCadaver)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _on_Nivel1Enemigo2_area_entered(area):
 	if area.is_in_group("bosses"):

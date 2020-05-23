@@ -48,7 +48,7 @@ margin_top = 327.301
 margin_right = 618.997
 margin_bottom = 351.301
 custom_fonts/font = SubResource( 2 )
-text = "Beta 0.1"
+text = "Beta 0.1.1"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
