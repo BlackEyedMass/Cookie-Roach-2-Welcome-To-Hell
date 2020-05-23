@@ -18,7 +18,6 @@ func _process(_delta):
 	if (global_position.x > 700):
 		destruir()
 
-
 func destruir():
 	var nuevaExplosion = explosion.instance()
 	nuevaExplosion.position = position
@@ -26,8 +25,6 @@ func destruir():
 	
 	queue_free()
 	
-
-
 
 func _on_ProyectilJugador_area_entered(area):
 	if area.is_in_group("enemigos"):

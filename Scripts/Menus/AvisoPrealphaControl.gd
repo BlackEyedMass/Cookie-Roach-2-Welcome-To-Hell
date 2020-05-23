@@ -1,17 +1,7 @@
 extends Node2D
 
-
 export(PackedScene) var proyectil
 export(PackedScene) var logoDestruido
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	if _anim_name == "anim_splash_screen_1":
@@ -33,7 +23,6 @@ func _on_LogoJuliansoft_area_entered(area):
 	
 	$Label.visible = false
 	$Timer.start()
-
 
 func _on_Timer_timeout():
 	var logoAnterior = find_node("LogoJuliansoftDestruido")

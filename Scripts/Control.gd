@@ -60,7 +60,6 @@ func terminarJuego():
 	var nuevaPantallaGameOver = pantallaGameOver.instance()
 	call_deferred('add_child',nuevaPantallaGameOver)
 
-
 # warning-ignore:function_conflicts_variable
 func advertenciaBoss():
 	var nuevaAdvertencia = bossAdvertencia.instance()
@@ -100,7 +99,6 @@ func _on_jefeNivel3_derrotado():
 
 func on_BossFinal_jugador_derrotado():
 	numeroMuertesNivelFinal += 1
-	print("Numero de muertes nivel final: ",numeroMuertesNivelFinal)
 	
 	if numeroMuertesNivelFinal >= 1:
 		secuenciaFinalActivada = true

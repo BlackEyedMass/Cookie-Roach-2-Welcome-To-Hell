@@ -19,11 +19,5 @@ func exit(next_state):
 	
 	fsm.change_to(next_state)
 
-# Optional handler functions for game loop events
-func process(delta):
-	# Add handler code here
-	
-	return delta
-
 func _on_timer_timeout():
 	exit("Start")

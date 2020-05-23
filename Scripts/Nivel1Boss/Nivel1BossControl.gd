@@ -24,7 +24,6 @@ func _ready():
 		connect("muerto",controladorNivel,"on_Nivel1Boss_muerto")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-# warning-ignore:unused_argument
 func _process(_delta):
 	if (salud < salud * 0.75):
 		esperaEntreAtaques = 7

@@ -1,10 +1,5 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var siguienteNivel
 
 var control
@@ -37,24 +32,20 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	else:
 		return
 
-
 func _on_BotonNivel1_button_down():
 	Global.cambiarNivelSeleccionado(1)
 	siguienteNivel = 11
 	reproducirAnimacion()
-
 
 func _on_BotonNivel2_button_down():
 	Global.cambiarNivelSeleccionado(2)
 	siguienteNivel = 11
 	reproducirAnimacion()
 
-
 func _on_BotonNivel3_button_down():
 	Global.cambiarNivelSeleccionado(3)
 	siguienteNivel = 11
 	reproducirAnimacion()
-
 
 func _on_BotonNivel4_button_down():
 	var control = find_parent("Control")

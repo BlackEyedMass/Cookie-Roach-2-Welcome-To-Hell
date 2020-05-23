@@ -17,8 +17,6 @@ func process(delta):
 	# Add handler code here
 	fsm.padre.position.x -= velocidad
 	
-
-	
 	if fsm.padre.position.x <= -100:
 		velocidad *= -1
 		fsm.padre.get_node("Sprite").flip_h = true
