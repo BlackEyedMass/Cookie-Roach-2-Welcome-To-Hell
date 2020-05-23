@@ -73,3 +73,5 @@ func _on_timerCambio_timeout():
 func _disparar():
 	var nuevoProyectil = proyectil.instance()
 	add_child(nuevoProyectil)
+	
+	fsm.padre.get_node("SonidoLaser1").play()

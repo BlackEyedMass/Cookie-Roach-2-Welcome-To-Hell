@@ -8,10 +8,31 @@ export(PackedScene) var powerUp
 
 var puedeDropear = false
 
+var sonidoPerderSalud
+
+var timerPerderSalud
+
+
+
 func _ready():
 	add_to_group("enemigos",true)
 	if powerUp != null:
 		puedeDropear = true
+	
+	print(self,": ",puedeDropear)
+	
+	sonidoPerderSalud = AudioStreamPlayer.new()
+	sonidoPerderSalud.stream = preload("res://Sounds/Efectos/sfx_exp_short_hard1.wav")
+	sonidoPerderSalud.volume_db = -5
+	add_child(sonidoPerderSalud)
+	
+	timerPerderSalud = Timer.new()
+	timerPerderSalud.wait_time = 0.10
+	timerPerderSalud.one_shot = true
+	timerPerderSalud.connect("timeout",self,"_on_timerPerderSalud_timeout")
+	add_child(timerPerderSalud)
+	
+	
 
 func _process(_delta):
 	
@@ -29,15 +50,25 @@ func perderSalud(dmg):
 	salud -= dmg
 	if (salud <= 0):
 		morir(false)
+	
+	visible = false
+	sonidoPerderSalud.play()
+	timerPerderSalud.start()
 
 #Esta funcion se encarga de destruir al enemigo, justdestroy se usará luego para añadir ordenes extra a la muerte
 func morir(justdestroy):
 	if justdestroy:
+#		position = Vector2(-100,-100)
 		call_deferred('free')
 	else:
 		if puedeDropear:
 			var nuevoPowerUp = powerUp.instance()
 			nuevoPowerUp.position = position
+			nuevoPowerUp.obtenerGenerador(self)
 			get_parent().call_deferred('add_child',nuevoPowerUp)
-				
+			
+#		position = Vector2(-100,-100)
 		call_deferred('free')
+
+func _on_timerPerderSalud_timeout():
+	visible = true

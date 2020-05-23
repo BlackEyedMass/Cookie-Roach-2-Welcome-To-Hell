@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 16.4415 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "anim_nivel_3_jefe_huevo_abierto"
 length = 0.5
 tracks/0/type = "value"
@@ -49,8 +49,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "anim_nivel_3_jefe_huevo_neutral"
+[sub_resource type="Animation" id=3]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -66,6 +65,7 @@ tracks/0/keys = {
 }
 
 [node name="Nivel3BossHuevo" type="Area2D"]
+z_index = -1
 script = ExtResource( 2 )
 cria = ExtResource( 3 )
 
@@ -80,5 +80,5 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "anim_nivel_3_jefe_huevo_neutral"
-anims/anim_nivel_3_jefe_huevo_abierto = SubResource( 3 )
-anims/anim_nivel_3_jefe_huevo_neutral = SubResource( 2 )
+anims/anim_nivel_3_jefe_huevo_abierto = SubResource( 2 )
+anims/anim_nivel_3_jefe_huevo_neutral = SubResource( 3 )

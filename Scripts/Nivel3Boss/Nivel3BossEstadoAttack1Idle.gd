@@ -11,6 +11,8 @@ func enter():
 	nuevoProyectil.position = fsm.padre.position
 	fsm.padre.get_parent().add_child(nuevoProyectil)
 	
+	fsm.padre.get_node("SonidoDisparos").play()
+	
 	var timer = Timer.new()
 	timer.autostart = true
 	timer.wait_time = rand_range(0.5,1.0)

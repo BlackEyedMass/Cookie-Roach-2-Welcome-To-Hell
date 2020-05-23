@@ -4,6 +4,8 @@ extends Node2D
 func _ready():
 	$Cuerpo.apply_central_impulse(Vector2(rand_range(-75,75),0))
 	$Cuerpo.angular_velocity = rand_range(-20,20)
+	
+	$Explosion1.emitting = true
 
 func generar(spr):
 	match spr:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/StateMachine.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Nivel3Enemigo2/Nivel3Enemigo2EstadoMovimiento.gd" type="Script" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Scripts/Nivel3Enemigo2/Nivel3Enemigo2Control.gd" type="Script" id=5]
 [ext_resource path="res://Objects/Enemigos/Proyectiles/ProyectilEnemigoTargetJugador.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/PowerUp.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sounds/Efectos/sfx_wpn_cannon4.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/Efectos/sfx_movement_footsteps1a.wav" type="AudioStream" id=9]
+[ext_resource path="res://Objects/Enemigos/AranaMuerta.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.0031, 11.9791 )
@@ -26,6 +29,24 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SonidoPasos")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0, 0.2 )
 }
 
 [sub_resource type="Animation" id=3]
@@ -49,6 +70,7 @@ tracks/0/keys = {
 script = ExtResource( 5 )
 powerUp = ExtResource( 7 )
 proyectil = ExtResource( 6 )
+cuerpo = ExtResource( 10 )
 
 [node name="Cuerpo" type="Node2D" parent="."]
 
@@ -82,3 +104,11 @@ frame = 3
 [node name="AnimadorArma" type="AnimationPlayer" parent="."]
 autoplay = "anim_nivel_3_enemigo_2_arma"
 anims/anim_nivel_3_enemigo_2_arma = SubResource( 3 )
+
+[node name="SonidoDisparos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -5.0
+
+[node name="SonidoPasos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -5.0

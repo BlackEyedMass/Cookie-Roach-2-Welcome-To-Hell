@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/Enemigos/Nivel2/Lagarto_3.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Nivel2Enemigo3/Nivel2Enemigo3MuertoControl.gd" type="Script" id=2]
 [ext_resource path="res://ParticleSystems/Smoke.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ParticleSystems/ExplosionS.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sounds/Efectos/sfx_exp_shortest_hard1.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.7726, 6.34197 )
@@ -40,4 +42,12 @@ shape = SubResource( 2 )
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="Explosion1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, 0 )
+
+[node name="SonidoExplosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -5.0
+autoplay = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

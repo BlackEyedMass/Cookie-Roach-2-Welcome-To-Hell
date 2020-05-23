@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sounds/Efectos/sfx_exp_short_hard1.wav" type="AudioStream" id=1]
+[ext_resource path="res://Scripts/ExplosionProyectilControl.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="ExplosionProyectil" type="CPUParticles2D"]
+emitting = false
+amount = 16
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 10.0
+color_ramp = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -5.0
+autoplay = true
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

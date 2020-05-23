@@ -13,6 +13,8 @@ func enter():
 	print("Numero Proyectiles: ",numProyectiles)
 	nuevoProyectil.start(-225,-135,numProyectiles,fsm.padre.position.x,fsm.padre.position.y)
 	
+	fsm.padre.get_node("SonidoLaser3").play()
+	
 	var timerCambio = Timer.new()
 	timerCambio.autostart = true
 	timerCambio.wait_time = rand_range(0.5,0.75)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Objects/Enemigos/Nivel2Enemigo3.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Jugador.tscn" type="PackedScene" id=2]
@@ -9,6 +9,28 @@
 [ext_resource path="res://Scripts/Nivel2/Nivel2Control.gd" type="Script" id=7]
 [ext_resource path="res://Sounds/Efectos/sfx_nivel_completado.wav" type="AudioStream" id=8]
 [ext_resource path="res://Fondos/Nivel2/bg_nivel_2.png" type="Texture" id=9]
+[ext_resource path="res://Sounds/Musica/mus_nivel_2.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Fonts/TTF/BERNHC.TTF" type="DynamicFontData" id=11]
+[ext_resource path="res://Objects/MusicaJefe.tscn" type="PackedScene" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 11 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "anim_iniciar_nivel"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Preparado:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false ]
+}
 
 [node name="Nivel2" type="Node2D" groups=[
 "jugable",
@@ -35,3 +57,33 @@ bus = "Efectos"
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Capa1"]
 texture = ExtResource( 9 )
 centered = false
+
+[node name="MusicaNivel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -5.0
+autoplay = true
+
+[node name="AnimacionInicio" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Preparado" type="RichTextLabel" parent="AnimacionInicio"]
+margin_top = 180.0
+margin_right = 640.0
+margin_bottom = 220.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Preparado[/center]"
+text = "Preparado"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimacionInicio"]
+anims/anim_iniciar_nivel = SubResource( 2 )
+
+[node name="MusicaJefe" parent="." instance=ExtResource( 12 )]
+[connection signal="animation_finished" from="AnimacionInicio/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

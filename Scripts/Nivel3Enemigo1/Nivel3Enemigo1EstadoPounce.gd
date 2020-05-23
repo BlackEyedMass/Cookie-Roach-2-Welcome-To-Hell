@@ -23,6 +23,8 @@ func enter():
 		distanciaAJugador = (instanciaJugador.global_position - fsm.padre.global_position).normalized()
 		
 	movimiento = distanciaAJugador * velocidad
+	
+	fsm.padre.get_node("SonidoAtaque").play()
 
 func exit(next_state):
 	fsm.change_to(next_state)

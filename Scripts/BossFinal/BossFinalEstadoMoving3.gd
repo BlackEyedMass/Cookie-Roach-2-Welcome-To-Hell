@@ -66,3 +66,5 @@ func _disparar():
 	var nuevoProyectil = proyectil.instance()
 	nuevoProyectil.position = fsm.padre.position
 	fsm.padre.get_parent().add_child(nuevoProyectil)
+	
+	fsm.padre.get_node("SonidoLaser1").play()

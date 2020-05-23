@@ -1,11 +1,9 @@
 extends Node2D
 
 
-var control
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	control = get_parent().get_node("./..")
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -2,6 +2,8 @@ extends "res://Scripts/Enemigo.gd"
 
 export(PackedScene) var proyectil
 
+export(PackedScene) var cuerpo
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	salud = 2
@@ -33,3 +35,10 @@ func _on_timerDisparos_timeout():
 	var nuevoProyectil = proyectil.instance()
 	nuevoProyectil.position = position
 	get_parent().add_child(nuevoProyectil)
+	
+	$SonidoDisparos.play()
+
+func _exit_tree():
+	var nuevoCuerpo = cuerpo.instance()
+	nuevoCuerpo.position = position
+	get_parent().call_deferred("add_child",nuevoCuerpo)

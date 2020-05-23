@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/CascaronNivelFinal/NivelBossFinalCreadorEnemigosControl.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Enemigos/NivelFinalCascaron.tscn" type="PackedScene" id=2]
@@ -7,6 +7,28 @@
 [ext_resource path="res://Objects/Enemigos/BossFinal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Fondos/Nivel4/bg_nivel4_2.png" type="Texture" id=6]
 [ext_resource path="res://Fondos/Nivel4/bg_nivel4_1.png" type="Texture" id=7]
+[ext_resource path="res://Sounds/Musica/mus_viento.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/Musica/mus_jefe_final.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Fonts/TTF/BERNHC.TTF" type="DynamicFontData" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "anim_iniciar_nivel"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Preparado:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false ]
+}
 
 [node name="NivelBossFinal" type="Node2D" groups=[
 "jugable",
@@ -35,3 +57,35 @@ motion_mirroring = Vector2( 1280, 0 )
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Capa2"]
 texture = ExtResource( 6 )
 centered = false
+
+[node name="Musica" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -5.0
+autoplay = true
+
+[node name="MusicaJefe" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -5.0
+
+[node name="AnimacionInicio" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Preparado" type="RichTextLabel" parent="AnimacionInicio"]
+margin_top = 180.0
+margin_right = 640.0
+margin_bottom = 220.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Preparado[/center]"
+text = "Preparado"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimacionInicio"]
+anims/anim_iniciar_nivel = SubResource( 2 )
+[connection signal="animation_finished" from="AnimacionInicio/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

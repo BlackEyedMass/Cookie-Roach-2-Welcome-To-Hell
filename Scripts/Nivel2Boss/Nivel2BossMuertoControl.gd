@@ -7,7 +7,7 @@ func _ready():
 	
 	var controlador = find_parent("Control")
 # warning-ignore:return_value_discarded
-	connect("derrotado",controlador,"_on_jefeNivel1_derrotado")
+	connect("derrotado",controlador,"_on_jefeNivel2_derrotado")
 	
 	var controladorNivel2 = find_parent("Nivel2")
 # warning-ignore:return_value_discarded

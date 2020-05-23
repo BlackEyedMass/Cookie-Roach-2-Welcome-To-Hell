@@ -51,6 +51,8 @@ func _on_timerDisparos_timeout():
 	var nuevoProyectil2 = proyectil.instance()
 	nuevoProyectil2.global_position = Vector2(616,260)
 	get_parent().add_child(nuevoProyectil2)
+	
+	fsm.padre.get_node("SonidoDisparo").play()
 
 func _on_timerAtaque_timeout():
 	var numeroAleatorio = randf()

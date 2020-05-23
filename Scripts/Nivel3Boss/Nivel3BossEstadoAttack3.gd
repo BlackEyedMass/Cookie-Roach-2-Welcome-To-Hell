@@ -10,6 +10,8 @@ func enter():
 	fsm.padre.get_parent().add_child(nuevoHuevo)
 	
 	exit("Attack1Movement")
+	
+	fsm.padre.get_node("SonidoHuevo").play()
 
 func exit(next_state):
 	fsm.change_to(next_state)

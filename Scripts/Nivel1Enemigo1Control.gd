@@ -15,6 +15,9 @@ func _ready():
 func _on_Nivel1Enemigo1_area_entered(area):
 	if area.is_in_group("bosses"):
 		morir(false)
+	
+	if area.is_in_group("proyectil_jugador"):
+		pass
 
 func _exit_tree():
 	var nuevoCadaver = cadaver.instance()

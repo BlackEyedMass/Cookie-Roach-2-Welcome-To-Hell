@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/Jugador/spr_proyectil_jugador.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/ProyectilJugadorControl.gd" type="Script" id=2]
+[ext_resource path="res://ParticleSystems/ExplosionProyectil.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.07388, 5.01919 )
 
-[node name="ProyectilJugador" type="Area2D"]
+[node name="ProyectilJugador" type="Area2D" groups=[
+"proyectil_jugador",
+]]
+z_index = -1
 script = ExtResource( 2 )
+explosion = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.75, 0.75 )

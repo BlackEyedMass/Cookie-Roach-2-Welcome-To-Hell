@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Enemigos/Nivel2/Lagarto_2_muerto.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Nivel2Enemigo2/Nivel2Enemigo2MuertoControl.gd" type="Script" id=2]
 [ext_resource path="res://ParticleSystems/Smoke.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ParticleSystems/ExplosionS.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sounds/Efectos/sfx_exp_shortest_hard1.wav" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 18.6838
@@ -27,4 +29,12 @@ position = Vector2( -1.54969, 28.2819 )
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="Explosion1" parent="." instance=ExtResource( 4 )]
+position = Vector2( -0.751038, 27.2876 )
+
+[node name="SonidoExplosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -5.0
+autoplay = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

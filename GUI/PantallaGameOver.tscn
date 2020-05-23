@@ -1,10 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/PantallaGameOverControl.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/Musica/mus_fin_del_juego.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Fonts/TTF/KidsHandwriting-Regular.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="Animation" id=1]
-resource_name = "anim_pantalla_gameover"
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=4]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mensaje:visible")
@@ -100,6 +112,7 @@ margin_left = 200.0
 margin_top = 150.0
 margin_right = 440.0
 margin_bottom = 234.0
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center]Game Over[/center]"
 text = "Game Over"
@@ -111,7 +124,7 @@ __meta__ = {
 [node name="GridContainer" type="GridContainer" parent="."]
 anchor_right = 0.5
 anchor_bottom = 0.7
-margin_left = 260.0
+margin_left = 242.0
 margin_top = 234.0
 margin_right = 60.0
 margin_bottom = 30.0
@@ -120,8 +133,9 @@ __meta__ = {
 }
 
 [node name="SeleccionarNivel" type="Button" parent="GridContainer"]
-margin_right = 120.0
-margin_bottom = 20.0
+margin_right = 152.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 2 )
 text = "Seleccionar nivel"
 flat = true
 __meta__ = {
@@ -129,9 +143,10 @@ __meta__ = {
 }
 
 [node name="Reintentar" type="Button" parent="GridContainer"]
-margin_top = 24.0
-margin_right = 120.0
-margin_bottom = 44.0
+margin_top = 28.0
+margin_right = 152.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 3 )
 text = "Reintentar"
 flat = true
 __meta__ = {
@@ -145,6 +160,6 @@ autoplay = true
 bus = "Musica"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/anim_pantalla_gameover = SubResource( 1 )
+anims/anim_pantalla_gameover = SubResource( 4 )
 [connection signal="pressed" from="GridContainer/SeleccionarNivel" to="." method="_on_SeleccionarNivel_pressed"]
 [connection signal="pressed" from="GridContainer/Reintentar" to="." method="_on_Reintentar_pressed"]

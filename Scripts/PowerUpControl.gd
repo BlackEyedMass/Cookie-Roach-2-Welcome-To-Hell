@@ -14,10 +14,17 @@ export(Texture) var texturaDamage
 
 var tipoAleatorio
 
+var generadoPor
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	tipoAleatorio = randi() % tipo.size()
 	generar(tipoAleatorio)
+	
+	print(self, " generado por: ",generadoPor)
+
+func obtenerGenerador(nodo):
+	generadoPor = nodo
 
 func _process(_delta):
 	position.x -= 1
@@ -37,5 +44,3 @@ func generar(indice):
 			$Sprite.texture = texturaCadenciaDisparo
 		tipo.POWERUP_DAMAGE:
 			$Sprite.texture = texturaDamage
-
-

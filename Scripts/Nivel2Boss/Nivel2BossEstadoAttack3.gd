@@ -17,6 +17,7 @@ func enter():
 	var numProyectiles = round(rand_range(8,10))
 	print("Numero Proyectiles: ",numProyectiles)
 	nuevoAtaque.start(-225,-135,numProyectiles,fsm.padre.position.x,fsm.padre.position.y)
+	fsm.padre.get_node("SonidoDisparoAmplio").play()
 
 func exit(next_state):
 	var contadores = get_child_count()

@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Fonts/TTF/BERNHC.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/TTF/KidsHandwriting-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Menus/PantallaTituloControl.gd" type="Script" id=2]
 [ext_resource path="res://Sounds/Musica/mus_titulo.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Fondos/PantallaTitulo/bg_pantallatitulo_v2.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 24
 font_data = ExtResource( 1 )
 
@@ -37,3 +41,15 @@ stream = ExtResource( 3 )
 volume_db = -2.0
 autoplay = true
 bus = "Musica"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 561.057
+margin_top = 327.301
+margin_right = 624.057
+margin_bottom = 345.301
+custom_fonts/font = SubResource( 2 )
+text = "Beta 0.1"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

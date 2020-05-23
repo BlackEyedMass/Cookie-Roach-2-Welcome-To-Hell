@@ -45,3 +45,5 @@ func _on_timerDisparos_timeout():
 	var nuevoProyectil = proyectil.instance()
 	fsm.padre.get_parent().add_child(nuevoProyectil)
 	nuevoProyectil.start(fsm.padre.position,velocidadDisparo)
+	
+	fsm.padre.get_node("SonidoDisparo").play()

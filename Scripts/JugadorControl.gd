@@ -28,6 +28,8 @@ func _ready():
 	
 	if modoDios:
 		movimiento = Vector2(0,360)
+	else:
+		movimiento = Vector2(-40,-40)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
@@ -61,6 +63,7 @@ func _process(_delta):
 		puedeDisparar = false
 		
 		$AnimationPlayer.play("anim_jugador_disparando")
+		$SonidoDisparo.play()
 		
 		$TiempoEntreDisparos.start(cadenciaDisparo)
 
@@ -101,6 +104,8 @@ func nuevoPowerUp(tipo):
 		3:
 			if damage < 5:
 				damage += 1
+	
+	$SonidoPowerUp.play()
 
 #Esta función se encarga de terminar la invencibilidad temporal del jugador
 func _on_TiempoInvencibilidad_timeout():

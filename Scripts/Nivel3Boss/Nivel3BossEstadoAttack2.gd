@@ -13,6 +13,8 @@ func enter():
 	timer.connect("timeout",self,"_on_timer_timeout")
 	add_child(timer)
 	
+	fsm.padre.get_node("SonidoEmbestida").play()
+	
 	var jugador = (get_tree().get_nodes_in_group("jugador"))
 	if jugador.size() == 0:
 		return
@@ -21,7 +23,8 @@ func enter():
 		var distanciaAJugador = instanciaJugador.global_position - fsm.padre.global_position
 		
 		posicionJugador = (instanciaJugador.global_position - fsm.padre.global_position).normalized()
-		
+	
+	fsm.padre.get_node("ParticulasCohete").emitting = true
 
 func exit(next_state):
 	var contadores = get_child_count()
@@ -30,6 +33,8 @@ func exit(next_state):
 		for n in get_children():
 			remove_child(n)
 			n.call_deferred('free')
+	
+	fsm.padre.get_node("ParticulasCohete").emitting = false
 	
 	fsm.change_to(next_state)
 

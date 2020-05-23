@@ -1,9 +1,7 @@
 extends "res://Scripts/Enemigo.gd"
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export(PackedScene)var cuerpo
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,3 +12,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+func _exit_tree():
+	var nuevoCuerpo = cuerpo.instance()
+	nuevoCuerpo.position = position
+	get_parent().call_deferred("add_child",nuevoCuerpo)

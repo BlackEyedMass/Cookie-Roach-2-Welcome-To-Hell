@@ -23,6 +23,7 @@ func _on_timer_timeout():
 		visible = false
 	else:
 		visible = true
+		$SonidoAlarma.play()
 	
 	bucles += 1
 	

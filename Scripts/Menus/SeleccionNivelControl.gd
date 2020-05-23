@@ -56,6 +56,7 @@ func _on_BotonNivel3_pressed():
 func _on_BotonNivel4_pressed():
 	var control = find_parent("Control")
 	siguienteNivel = 7
+	reproducirAnimacion()
 #	control.cambiarNivel(7)
 
 func reproducirAnimacion():

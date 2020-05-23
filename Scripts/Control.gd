@@ -6,7 +6,7 @@ export(PackedScene) var bossAdvertencia
 
 #Array con todos los niveles del juego
 var listaNiveles = [
-	"AvisoPrealpha",#0
+	"SplashScreen",#0
 	"PantallaTitulo",#1
 	"SeleccionNivel",#2
 	"TestWorld",#3
@@ -35,18 +35,25 @@ var secuenciaFinalActivada = false
 func _ready():
 	numeroMuertesNivelFinal = 0
 	
-	OS.set_window_maximized(true)
+	OS.window_fullscreen = true
 	randomize()
 	#Al iniciar el juego carga el primer nivel en la lista
-	cambiarNivel(1)
+	cambiarNivel(0)
 
 func _input(event):
-	#(DEBUG) Botón que libera el mouse automáticamente
-	if event.is_action_pressed("ui_end"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	if event.is_action_pressed("toggle_fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen
 	
 	if event.is_action_pressed("ui_cancel"):
-		cambiarNivel(2)
+		get_tree().quit()
+	
+#	#(DEBUG) Botón que libera el mouse automáticamente
+#	if event.is_action_pressed("ui_end"):
+#		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+#
+#	if event.is_action_pressed("ui_cancel"):
+#		cambiarNivel(2)
 
 #Función encargada de instanciar la pantalla de Game Over cuando el juego termina
 func terminarJuego():

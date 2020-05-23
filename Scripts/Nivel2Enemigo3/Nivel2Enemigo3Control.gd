@@ -31,6 +31,8 @@ func _on_TiempoEntreAtaques_timeout():
 	var nuevoProyectil = proyectil.instance()
 	nuevoProyectil.position = position
 	get_parent().add_child(nuevoProyectil)
+	
+	$SonidoDisparo.play()
 
 func _exit_tree():
 	var nuevoCuerpo = cuerpo.instance()

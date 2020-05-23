@@ -22,6 +22,8 @@ _global_script_class_icons={
 
 config/name="Cookie Roach 2 Welcome To Hell"
 run/main_scene="res://Objects/Control.tscn"
+boot_splash/image="res://splash.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icono.png"
 
 [autoload]
@@ -58,6 +60,14 @@ texture={
 "size_limit": 0,
 "stream": false,
 "svg/scale": 1.0
+}
+
+[input]
+
+toggle_fullscreen={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777247,"unicode":0,"echo":false,"script":null)
+ ]
 }
 
 [rendering]

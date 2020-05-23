@@ -71,3 +71,5 @@ func _disparar():
 	nuevoProyectil.position = fsm.padre.position
 	fsm.padre.get_parent().add_child(nuevoProyectil)
 	nuevoProyectil.start(fsm.padre.position,velocidadDisparo)
+	
+	fsm.padre.get_node("SonidoLaser2").play()

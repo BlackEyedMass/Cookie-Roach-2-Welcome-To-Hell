@@ -13,6 +13,7 @@ func enter():
 	movimiento = fsm.padre.position
 	centroPantalla = get_viewport().get_visible_rect().size.y / 2
 	
+	fsm.padre.get_node("SonidoAlerta").play()
 
 func exit(next_state):
 	fsm.change_to(next_state)

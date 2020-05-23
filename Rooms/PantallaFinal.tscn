@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/BossFinal/PantallaFinalControl.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/Musica/mus_creditos.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Sounds/Efectos/sfx_explosion_nuclear.wav" type="AudioStream" id=3]
 [ext_resource path="res://Fondos/PantallaTitulo/bg_pantallatitulo_no_logo.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/TTF/BERNHC.TTF" type="DynamicFontData" id=5]
+[ext_resource path="res://Fonts/TTF/KidsHandwriting-Regular.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim_creditos"
@@ -32,6 +34,55 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 320, 180 ), Vector2( 314.559, 178.64 ), Vector2( 322.721, 181.36 ), Vector2( 313.896, 182.648 ), Vector2( 316.896, 176.648 ), Vector2( 313.896, 180.648 ), Vector2( 320.896, 183.648 ), Vector2( 317.896, 185.648 ), Vector2( 312.896, 183.648 ), Vector2( 321.896, 184.648 ), Vector2( 319.843, 186.188 ), Vector2( 320.357, 186.702 ), Vector2( 318.303, 180.541 ), Vector2( 320.357, 181.055 ), Vector2( 319.33, 180.541 ), Vector2( 320, 180 ), Vector2( 315.089, 182.455 ), Vector2( 316.317, 183.683 ), Vector2( 320.961, 181.693 ), Vector2( 319.634, 181.693 ), Vector2( 320.961, 178.376 ), Vector2( 322.288, 181.693 ), Vector2( 320.961, 179.703 ), Vector2( 320.297, 181.693 ), Vector2( 319.634, 179.703 ), Vector2( 320.297, 180.366 ), Vector2( 320, 180 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 5, 142 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 387 ), Vector2( 0, -1636.13 ) ]
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("Musica")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 2.7 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Fin:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 140, 144 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+outline_size = 2
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
 
 [node name="PantallaFinal" type="Node2D"]
 script = ExtResource( 1 )
@@ -47,13 +98,13 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 640.0
 margin_bottom = 360.0
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Musica" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "anim_creditos"
@@ -68,3 +119,98 @@ autoplay = true
 position = Vector2( 320, 180 )
 current = true
 zoom = Vector2( 0.95, 0.95 )
+
+[node name="Label" type="Label" parent="."]
+margin_top = 379.616
+margin_right = 640.0
+margin_bottom = 1986.62
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Cookie Roach 2
+Welcome to Hell
+
+
+
+Programacion
+Julian P
+
+Arte
+Julian P
+
+Musica Robada De
+Monster Truck Rally - Menu
+Mega Man 5 - Level Select Theme
+DOOM - The Imp's Song
+Buckethead - Jordan
+Kmac 2021 - Single Coils Can't Djent
+Carpenter Brut - Le Perv
+Contra - Stage Clear
+Clown Core - Hell
+Tailed Feature - Count Dankula Metal Theme
+Ustedes Nunca Me Han Querido En Esta Gran Hijueputa Vida
+Linouille 8-Bit - I Don't Want To Set The World On Fire
+
+Efectos De Sonido Robados
+En Su Mayoria De
+Freesound.org
+Opengameart.org
+
+Otros Efectos Usados
+Kaz speech
+Know Your Fucking Place, Trash
+
+Y posiblemente otros que personalmente no quiero listar ya
+que dudo mucho que alguna empresa vaya a molestarse
+con esta basura de juego.
+
+Hecho con
+Godot Engine
+Piskel
+MS Paint
+Krita
+Audacity
+
+Gracias por jugar
+
+No le digan a Hermes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ya puedes cerrar el juego.
+
+Ya no queda nada que ver.
+
+No hay salida de esta pantalla."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fin" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 554.468
+margin_top = 293.298
+margin_right = 599.468
+margin_bottom = 332.298
+custom_fonts/font = SubResource( 3 )
+text = "Fin."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -4,7 +4,7 @@ extends "res://Scripts/Enemigo.gd"
 var saludBase = 25
 var esperaEntreAtaques = 10
 
-signal derrotado
+signal muerto
 
 export(PackedScene)var cuerpo
 
@@ -20,7 +20,9 @@ func _ready():
 		
 		salud = round((saludBase * damageJugador) * (1 + cadenciaDisparoJugador))
 	
-	
+	var controladorNivel = find_parent("Nivel2")
+	if controladorNivel != null:
+		connect("muerto",controladorNivel,"on_Nivel2Boss_muerto")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -36,4 +38,5 @@ func _exit_tree():
 	var nuevoCuerpo = cuerpo.instance()
 	nuevoCuerpo.position = position
 	get_parent().call_deferred("add_child",nuevoCuerpo)
+	emit_signal("muerto")
 

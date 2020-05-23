@@ -7,6 +7,8 @@ func _ready():
 	
 	$Arma.apply_central_impulse(Vector2(rand_range(-75,75),0))
 	$Arma.angular_velocity = rand_range(-20,20)
+	
+	$Explosion1.emitting = true
 
 func _on_Timer_timeout():
 	call_deferred("free")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/StateMachine.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Nivel3Enemigo1/Nivel3Enemigo1EstadoIdle.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Objects/Enemigos/Nivel3Enemigo1Body.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Nivel3Enemigo1/Nivel3Enemigo1Control.gd" type="Script" id=6]
 [ext_resource path="res://Objects/PowerUp.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Enemigos/AranaMuerta.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.935, 11.924 )
@@ -48,6 +49,7 @@ tracks/0/keys = {
 [node name="Nivel3Enemigo1" type="Area2D"]
 script = ExtResource( 6 )
 powerUp = ExtResource( 7 )
+cuerpo = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
@@ -71,3 +73,6 @@ rigidBody = ExtResource( 5 )
 autoplay = "anim_nivel_3_enemigo_1_idle"
 anims/anim_nivel_3_enemigo_1_idle = SubResource( 2 )
 anims/anim_nivel_3_enemigo_1_pounce = SubResource( 3 )
+
+[node name="SonidoAtaque" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0

@@ -6,6 +6,7 @@ export(PackedScene) var ataque
 
 func enter():
 	fsm.animador.play("anim_nivel_1_avispa_jefe_disparando")
+	fsm.padre.get_node("SonidoDisparoAmplio").play()
 	fire()
 
 func exit(next_state):
@@ -21,5 +22,8 @@ func fire():
 	var nuevoAtaque = ataque.instance()
 	add_child(nuevoAtaque)
 	nuevoAtaque.start(-225,-135,12,fsm.padre.position.x,fsm.padre.position.y)
+	
+
+	
 	exit("Attack1")
 	

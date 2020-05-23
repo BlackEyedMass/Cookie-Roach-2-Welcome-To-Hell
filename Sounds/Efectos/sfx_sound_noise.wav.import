@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_sound_noise.wav-5b446333ba848f93156dd99fa925b824.sample"
+
+[deps]
+
+source_file="res://Sounds/Efectos/sfx_sound_noise.wav"
+dest_files=[ "res://.import/sfx_sound_noise.wav-5b446333ba848f93156dd99fa925b824.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

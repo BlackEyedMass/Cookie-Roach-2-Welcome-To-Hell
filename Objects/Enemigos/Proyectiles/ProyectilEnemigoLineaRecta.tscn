@@ -9,6 +9,7 @@ extents = Vector2( 7.87745, 7.87034 )
 [node name="ProyectilEnemigoLineaRecta" type="Area2D" groups=[
 "enemigos",
 ]]
+z_index = -1
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://ParticleSystems/ExplosionL.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Enemigos/Nivel2JefeCuerpo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ParticleSystems/ExplosionS.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Enemigos/Nivel2/Lagarto_jefe_cabeza.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Nivel2Boss/Nivel2BossMuertoControl.gd" type="Script" id=5]
+[ext_resource path="res://Sounds/Efectos/sfx_exp_short_hard6.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/Efectos/sfx_exp_medium7.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/Efectos/sfx_exp_long4.wav" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim_nivel_2_jefe_muerte"
@@ -141,6 +144,56 @@ tracks/10/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/11/type = "audio"
+tracks/11/path = NodePath("SonidoExplosiones")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0, 3, 3.5, 4, 4.5, 4.8, 5, 5.2, 5.4, 5.5 )
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "anim_nivel_2_jefe_muerte_idle"
@@ -192,4 +245,8 @@ position = Vector2( -14.642, -3.81535 )
 autoplay = "anim_nivel_2_jefe_muerte"
 anims/anim_nivel_2_jefe_muerte = SubResource( 1 )
 anims/anim_nivel_2_jefe_muerte_idle = SubResource( 2 )
+
+[node name="SonidoExplosiones" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -5.0
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

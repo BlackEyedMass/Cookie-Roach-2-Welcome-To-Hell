@@ -5,6 +5,8 @@ var fsm: StateMachine
 var velocidad = 20
 
 func enter():
+	fsm.padre.get_node("SonidoCarga").play()
+	
 	fsm.animador.play("anim_nivel_1_avispa_jefe_cargando")
 
 func exit(next_state):
@@ -14,6 +16,8 @@ func exit(next_state):
 func process(delta):
 	# Add handler code here
 	fsm.padre.position.x -= velocidad
+	
+
 	
 	if fsm.padre.position.x <= -100:
 		velocidad *= -1

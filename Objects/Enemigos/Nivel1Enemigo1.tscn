@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/Enemigos/Nivel1/spr_nivel_1_avispa_1.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Nivel1Enemigo1Control.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scripts/Nivel1Enemigo1Estados/Nivel1Enemigo1EstadoCharge.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Nivel1Enemigo1Estados/Nivel1Enemigo1EstadoStart.gd" type="Script" id=7]
 [ext_resource path="res://Objects/Enemigos/AvispaMuerta.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sounds/Efectos/sfx_wpn_missilelaunch.wav" type="AudioStream" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18.4821, 7.92317 )
@@ -124,4 +125,8 @@ script = ExtResource( 6 )
 autoplay = "anim_nivel_1_avispa_1_normal"
 anims/anim_nivel_1_avispa_1_cargando = SubResource( 2 )
 anims/anim_nivel_1_avispa_1_normal = SubResource( 3 )
+
+[node name="SonidoAtaque" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0
 [connection signal="area_entered" from="." to="." method="_on_Nivel1Enemigo1_area_entered"]

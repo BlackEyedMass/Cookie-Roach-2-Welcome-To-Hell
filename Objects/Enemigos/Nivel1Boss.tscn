@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Sprites/Enemigos/Nivel1/spr_nivel_1_avispa_jefe.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Nivel1Boss/Nivel1BossControl.gd" type="Script" id=2]
@@ -13,9 +13,13 @@
 [ext_resource path="res://Scripts/Nivel1Boss/Nivel1BossEstadoAttack3Setup.gd" type="Script" id=11]
 [ext_resource path="res://Objects/Enemigos/Proyectiles/ProyectilEnemigoSpreadDisparador.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Objects/Enemigos/BossNivel1Muerto.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sounds/Efectos/sfx_wpn_cannon4.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/Efectos/sfx_wpn_missilelaunch.wav" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/Efectos/sfx_wpn_cannon6.wav" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/Efectos/sfx_lowhealth_alarmloop4.wav" type="AudioStream" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 52.3115, 13.5276 )
+extents = Vector2( 25.3009, 23.014 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "anim_nivel_1_avispa_jefe_cargando"
@@ -142,16 +146,14 @@ tracks/2/keys = {
 "bosses",
 ]]
 script = ExtResource( 2 )
-powerUp = ExtResource( 6 )
 cadaver = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 6
-frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -4.49133, 2.75831 )
+position = Vector2( -24.0916, 9.91694 )
 shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="."]
@@ -185,3 +187,19 @@ ataque = ExtResource( 12 )
 anims/anim_nivel_1_avispa_jefe_cargando = SubResource( 2 )
 anims/anim_nivel_1_avispa_jefe_disparando = SubResource( 3 )
 anims/anim_nivel_1_avispa_jefe_normal = SubResource( 4 )
+
+[node name="SonidoDisparo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -5.0
+
+[node name="SonidoCarga" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -5.0
+
+[node name="SonidoDisparoAmplio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -5.0
+
+[node name="SonidoAlerta" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -5.0

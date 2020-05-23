@@ -5,6 +5,8 @@ var fsm: StateMachine
 func enter():
 	var animador = fsm.padre.get_node("AnimationPlayer")
 	animador.play("anim_nivel_1_avispa_1_cargando")
+	
+	fsm.padre.get_node("SonidoAtaque").play()
 
 func exit(next_state):
 	fsm.change_to(next_state)

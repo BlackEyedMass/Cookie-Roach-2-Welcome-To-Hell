@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mus_viento.ogg-01c72f64da4b011584c3532bc52474c9.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Musica/mus_viento.ogg"
+dest_files=[ "res://.import/mus_viento.ogg-01c72f64da4b011584c3532bc52474c9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

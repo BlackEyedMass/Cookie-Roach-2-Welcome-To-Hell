@@ -1,15 +1,17 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/Enemigos/Nivel3/Arana_3.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/StateMachine.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Nivel3Boss/Nivel3BossCriaEstadoAwake.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Nivel3Boss/Nivel3BossCriaEstadoAttack.gd" type="Script" id=4]
 [ext_resource path="res://Objects/Enemigos/Nivel3BossTela.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sounds/Efectos/sfx_movement_footsteps1a.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/Efectos/sfx_alarm_loop4.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.8954, 11.8229 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "anim_nivel_3_jefe_cria_attack"
 length = 0.4
 loop = true
@@ -25,9 +27,34 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 3, 4, 5, 4 ]
 }
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SonidoPasos")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 )
+}
 
-[sub_resource type="Animation" id=2]
-resource_name = "anim_nivel_3_jefe_cria_awake"
+[sub_resource type="Animation" id=3]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -64,5 +91,12 @@ script = ExtResource( 4 )
 tela = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/anim_nivel_3_jefe_cria_attack = SubResource( 3 )
-anims/anim_nivel_3_jefe_cria_awake = SubResource( 2 )
+anims/anim_nivel_3_jefe_cria_attack = SubResource( 2 )
+anims/anim_nivel_3_jefe_cria_awake = SubResource( 3 )
+
+[node name="SonidoPasos" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+
+[node name="SonidoDespertar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -5.0

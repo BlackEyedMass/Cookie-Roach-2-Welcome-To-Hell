@@ -3,6 +3,8 @@ extends Area2D
 var velocidad
 var damage
 
+export(PackedScene)var explosion
+
 func start(pos,vel,dmg):
 	position = pos
 	velocidad = vel
@@ -18,7 +20,13 @@ func _process(_delta):
 
 
 func destruir():
+	var nuevaExplosion = explosion.instance()
+	nuevaExplosion.position = position
+	get_parent().call_deferred("add_child",nuevaExplosion)
+	
 	queue_free()
+	
+
 
 
 func _on_ProyectilJugador_area_entered(area):

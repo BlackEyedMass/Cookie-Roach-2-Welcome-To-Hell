@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Sprites/Enemigos/Nivel2/Lagarto_jefe_lengua.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/StateMachine.gd" type="Script" id=2]
@@ -14,6 +14,11 @@
 [ext_resource path="res://Sprites/Enemigos/Nivel2/Lagarto_jefe_cabeza.png" type="Texture" id=12]
 [ext_resource path="res://Objects/Enemigos/Nivel2JefeCuerpo.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/Enemigos/Nivel2BossMuerto.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sounds/Efectos/sfx_sound_mechanicalnoise3.wav" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/Efectos/sfx_alarm_loop8.wav" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/Efectos/sfx_sound_noise.wav" type="AudioStream" id=17]
+[ext_resource path="res://Sounds/Efectos/sfx_wpn_cannon6.wav" type="AudioStream" id=18]
+[ext_resource path="res://Sounds/Efectos/sfx_wpn_cannon4.wav" type="AudioStream" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 34.6493, 26.6896 )
@@ -117,6 +122,20 @@ tracks/7/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/8/type = "audio"
+tracks/8/path = NodePath("SonidoAtaque")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "anim_bossnivel2_ataque_3_setup"
@@ -145,6 +164,20 @@ tracks/1/keys = {
 "update": 0,
 "values": [ -20.068, 339.88 ]
 }
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SonidoAtaque")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.177295,
+"start_offset": 0.0,
+"stream": ExtResource( 16 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "anim_nivel_2_boss_ataque_3_salida"
@@ -172,6 +205,20 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ -32.0661, 0.0 ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SonidoAtaque")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="RectangleShape2D" id=5]
@@ -225,12 +272,10 @@ z_index = -2
 script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="Rotable/Lengua"]
-visible = false
 position = Vector2( 269, 0 )
 texture = ExtResource( 1 )
 offset = Vector2( -11.7879, 0.0881348 )
 hframes = 2
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotable/Lengua"]
 shape = SubResource( 5 )
@@ -247,4 +292,16 @@ texture = ExtResource( 12 )
 offset = Vector2( -31.9657, -4.06217 )
 hframes = 3
 frame = 1
+
+[node name="SonidoAtaque" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -5.0
+
+[node name="SonidoDisparo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+volume_db = -5.0
+
+[node name="SonidoDisparoAmplio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -5.0
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Attack3Setup" method="_on_AnimationPlayer_animation_finished"]

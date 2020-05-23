@@ -8,6 +8,8 @@ signal perder_vida
 
 var activado = false
 
+export(PackedScene) var cuerpo
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	salud = 4
@@ -20,3 +22,8 @@ func _process(delta):
 	if salud != 4 and !activado:
 		emit_signal("perder_vida")
 		activado = true
+
+func _exit_tree():
+	var nuevoCuerpo = cuerpo.instance()
+	nuevoCuerpo.position = position
+	get_parent().call_deferred("add_child",nuevoCuerpo)
