@@ -38,7 +38,7 @@ func _ready():
 	OS.window_fullscreen = true
 	randomize()
 	#Al iniciar el juego carga el primer nivel en la lista
-	cambiarNivel(5)
+	cambiarNivel(0)
 
 func _input(event):
 	
