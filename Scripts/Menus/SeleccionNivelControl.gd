@@ -27,38 +27,6 @@ func _ready():
 	if $BotonNivel1.disabled and $BotonNivel2.disabled and $BotonNivel3.disabled:
 		$BotonNivel4.disabled = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-func _on_BotonNivel1_pressed():
-	Global.cambiarNivelSeleccionado(1)
-	siguienteNivel = 11
-	reproducirAnimacion()
-#	control.cambiarNivel(11)
-
-
-func _on_BotonNivel2_pressed():
-	Global.cambiarNivelSeleccionado(2)
-	siguienteNivel = 11
-	reproducirAnimacion()
-#	control.cambiarNivel(11)
-
-
-func _on_BotonNivel3_pressed():
-	Global.cambiarNivelSeleccionado(3)
-	siguienteNivel = 11
-	reproducirAnimacion()
-#	control.cambiarNivel(11)
-
-
-func _on_BotonNivel4_pressed():
-	var control = find_parent("Control")
-	siguienteNivel = 7
-	reproducirAnimacion()
-#	control.cambiarNivel(7)
-
 func reproducirAnimacion():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$AnimationPlayer.play("anim_nivel_seleccionado")
@@ -68,3 +36,28 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		control.cambiarNivel(siguienteNivel)
 	else:
 		return
+
+
+func _on_BotonNivel1_button_down():
+	Global.cambiarNivelSeleccionado(1)
+	siguienteNivel = 11
+	reproducirAnimacion()
+
+
+func _on_BotonNivel2_button_down():
+	Global.cambiarNivelSeleccionado(2)
+	siguienteNivel = 11
+	reproducirAnimacion()
+
+
+func _on_BotonNivel3_button_down():
+	Global.cambiarNivelSeleccionado(3)
+	siguienteNivel = 11
+	reproducirAnimacion()
+
+
+func _on_BotonNivel4_button_down():
+	var control = find_parent("Control")
+	siguienteNivel = 7
+	reproducirAnimacion()
+

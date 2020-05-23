@@ -9,7 +9,7 @@
 [ext_resource path="res://Sounds/Efectos/sfx_menu_select3.wav" type="AudioStream" id=7]
 [ext_resource path="res://Fondos/PantallaTitulo/bg_pantallatitulo_no_logo.png" type="Texture" id=8]
 [ext_resource path="res://Sounds/Efectos/sfx_explosion_nuclear.wav" type="AudioStream" id=9]
-[ext_resource path="res://Fonts/TTF/KidsHandwriting-Regular.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Fonts/TTF/smalle.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 52.213
@@ -211,16 +211,6 @@ tracks/8/keys = {
 "update": 1,
 "values": [ false, true ]
 }
-tracks/9/type = "bezier"
-tracks/9/path = NodePath("AudioStreamPlayer:volume_db")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -10, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1.8, 1.9 )
-}
 
 [sub_resource type="DynamicFont" id=5]
 size = 32
@@ -301,7 +291,8 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 7 )
+bus = "Efectos"
 [connection signal="area_entered" from="LogoJuliansoft" to="." method="_on_LogoJuliansoft_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

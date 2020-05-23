@@ -7,7 +7,7 @@ var velocidad = 20
 func enter():
 	fsm.padre.get_node("SonidoCarga").play()
 	
-	fsm.animador.play("anim_nivel_1_avispa_jefe_cargando")
+	fsm.padre.get_node("AnimationPlayer").play("anim_nivel_1_avispa_jefe_cargando")
 
 func exit(next_state):
 	fsm.change_to(next_state)

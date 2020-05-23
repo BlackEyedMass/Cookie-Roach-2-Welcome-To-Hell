@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/BossFinal/PantallaFinalControl.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/Musica/mus_creditos.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Sounds/Efectos/sfx_explosion_nuclear.wav" type="AudioStream" id=3]
 [ext_resource path="res://Fondos/PantallaTitulo/bg_pantallatitulo_no_logo.png" type="Texture" id=4]
-[ext_resource path="res://Fonts/TTF/BERNHC.TTF" type="DynamicFontData" id=5]
-[ext_resource path="res://Fonts/TTF/KidsHandwriting-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Fonts/TTF/smalle.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim_creditos"
@@ -67,14 +66,14 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 140, 144 ),
+"times": PoolRealArray( 0, 131.7, 133.9 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="DynamicFont" id=2]
-size = 24
+size = 18
 outline_size = 2
 font_data = ExtResource( 6 )
 
@@ -82,7 +81,7 @@ font_data = ExtResource( 6 )
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [node name="PantallaFinal" type="Node2D"]
 script = ExtResource( 1 )
@@ -105,6 +104,8 @@ __meta__ = {
 
 [node name="Musica" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+volume_db = 3.0
+bus = "Musica"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "anim_creditos"
@@ -112,8 +113,9 @@ anims/anim_creditos = SubResource( 1 )
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -20.0
+volume_db = -2.0
 autoplay = true
+bus = "Efectos"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 320, 180 )
@@ -121,9 +123,9 @@ current = true
 zoom = Vector2( 0.95, 0.95 )
 
 [node name="Label" type="Label" parent="."]
-margin_top = 379.616
+margin_top = -1557.86
 margin_right = 640.0
-margin_bottom = 1986.62
+margin_bottom = 410.137
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -132,13 +134,13 @@ Welcome to Hell
 
 
 
-Programacion
+Programación
 Julian P
 
 Arte
 Julian P
 
-Musica Robada De
+Música Robada De
 Monster Truck Rally - Menu
 Mega Man 5 - Level Select Theme
 DOOM - The Imp's Song
@@ -148,21 +150,23 @@ Carpenter Brut - Le Perv
 Contra - Stage Clear
 Clown Core - Hell
 Tailed Feature - Count Dankula Metal Theme
-Ustedes Nunca Me Han Querido En Esta Gran Hijueputa Vida
-Linouille 8-Bit - I Don't Want To Set The World On Fire
+Ustedes Nunca Me Han Querido En 
+Esta Gran Hijueputa Vida
+Linouille 8-Bit - I Don't Want To
+Set The World On Fire
 
 Efectos De Sonido Robados
-En Su Mayoria De
+(En Su Mayoría) De
 Freesound.org
 Opengameart.org
 
 Otros Efectos Usados
-Kaz speech
+Kaz's speech
 Know Your Fucking Place, Trash
 
-Y posiblemente otros que personalmente no quiero listar ya
-que dudo mucho que alguna empresa vaya a molestarse
-con esta basura de juego.
+Y posiblemente otros que personalmente
+ no quiero listar yaque dudo mucho que alguna empresa
+ vaya a molestarse con esta basura de juego.
 
 Hecho con
 Godot Engine
@@ -203,11 +207,10 @@ __meta__ = {
 }
 
 [node name="Fin" type="Label" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 554.468
-margin_top = 293.298
-margin_right = 599.468
-margin_bottom = 332.298
+margin_left = 549.817
+margin_top = 300.909
+margin_right = 603.817
+margin_bottom = 339.909
 custom_fonts/font = SubResource( 3 )
 text = "Fin."
 align = 1

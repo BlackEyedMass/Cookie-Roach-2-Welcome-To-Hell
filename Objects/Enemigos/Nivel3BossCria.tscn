@@ -95,8 +95,11 @@ anims/anim_nivel_3_jefe_cria_attack = SubResource( 2 )
 anims/anim_nivel_3_jefe_cria_awake = SubResource( 3 )
 
 [node name="SonidoPasos" type="AudioStreamPlayer" parent="."]
-volume_db = -5.0
+stream = ExtResource( 6 )
+volume_db = 5.0
+bus = "Efectos"
 
 [node name="SonidoDespertar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = -5.0
+volume_db = 3.0
+bus = "Efectos"

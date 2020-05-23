@@ -143,28 +143,29 @@ centered = false
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 642.0
 margin_bottom = 364.0
-color = Color( 0, 0, 0, 0 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="IconoBoss" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 466.654, 173.039 )
 texture = ExtResource( 2 )
 vframes = 3
 
 [node name="IconoBossBlanco" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 1 )
 position = Vector2( 465.654, 173.039 )
 texture = ExtResource( 2 )
 vframes = 3
 
 [node name="Nombre" type="RichTextLabel" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 9.0
-margin_top = 158.0
+margin_top = 146.0
 margin_right = 297.0
-margin_bottom = 324.0
+margin_bottom = 311.0
 custom_fonts/normal_font = ExtResource( 6 )
 bbcode_enabled = true
 bbcode_text = "[center]SAMPLE TEXT[/center]"
@@ -175,7 +176,7 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -5.0
+volume_db = -3.0
 bus = "Musica"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

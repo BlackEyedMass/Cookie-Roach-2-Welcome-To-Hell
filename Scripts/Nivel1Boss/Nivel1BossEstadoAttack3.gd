@@ -5,7 +5,7 @@ var fsm: StateMachine
 export(PackedScene) var ataque
 
 func enter():
-	fsm.animador.play("anim_nivel_1_avispa_jefe_disparando")
+	fsm.padre.get_node("AnimationPlayer").play("anim_nivel_1_avispa_jefe_disparando")
 	fsm.padre.get_node("SonidoDisparoAmplio").play()
 	fire()
 

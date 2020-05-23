@@ -248,5 +248,5 @@ anims/anim_nivel_2_jefe_muerte_idle = SubResource( 2 )
 
 [node name="SonidoExplosiones" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -5.0
+bus = "Efectos"
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

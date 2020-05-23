@@ -16,8 +16,6 @@ func _ready():
 	# Set the initial state to the first child node
 	padre = get_parent()
 	
-	animador = padre.get_node("AnimationPlayer")
-	
 	state = get_child(0)
 	_enter_state()
 	

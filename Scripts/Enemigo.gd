@@ -23,7 +23,7 @@ func _ready():
 	
 	sonidoPerderSalud = AudioStreamPlayer.new()
 	sonidoPerderSalud.stream = preload("res://Sounds/Efectos/sfx_exp_short_hard1.wav")
-	sonidoPerderSalud.volume_db = -5
+	sonidoPerderSalud.bus = "Efectos"
 	add_child(sonidoPerderSalud)
 	
 	timerPerderSalud = Timer.new()

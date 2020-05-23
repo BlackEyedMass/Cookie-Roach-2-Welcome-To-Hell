@@ -268,22 +268,26 @@ anims/anim_nivel_3_jefe_start = SubResource( 7 )
 
 [node name="SonidoPasos" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
-volume_db = -10.0
+bus = "Efectos"
 
 [node name="SonidosMecanicos" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
-volume_db = -5.0
+volume_db = 5.0
+bus = "Efectos"
 
 [node name="SonidoEmbestida" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
-volume_db = -5.0
+volume_db = 5.0
+bus = "Efectos"
 
 [node name="SonidoHuevo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
+volume_db = 10.0
+bus = "Efectos"
 
 [node name="SonidoDisparos" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
-volume_db = -5.0
+bus = "Efectos"
 
 [node name="ParticulasCohete" type="CPUParticles2D" parent="."]
 position = Vector2( 34.7374, 0 )

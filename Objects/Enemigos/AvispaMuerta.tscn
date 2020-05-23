@@ -47,8 +47,9 @@ autostart = true
 
 [node name="SonidoExplosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = -5.0
+volume_db = 5.0
 autoplay = true
+bus = "Efectos"
 
 [node name="Explosion1" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, 0 )

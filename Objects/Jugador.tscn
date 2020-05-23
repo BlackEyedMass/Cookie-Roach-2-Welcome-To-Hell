@@ -85,14 +85,16 @@ anims/anim_jugador_normal = SubResource( 3 )
 
 [node name="SonidoPerderVida" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = 10.0
+bus = "Efectos"
 
 [node name="SonidoDisparo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -10.0
+bus = "Efectos"
 
 [node name="SonidoPowerUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -10.0
+bus = "Efectos"
 
 [node name="ParticulasJetpack" type="CPUParticles2D" parent="."]
 position = Vector2( -15.6039, -6.61195 )

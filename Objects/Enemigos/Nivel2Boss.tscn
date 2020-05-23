@@ -295,13 +295,15 @@ frame = 1
 
 [node name="SonidoAtaque" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
-volume_db = -5.0
+volume_db = 5.0
+bus = "Efectos"
 
 [node name="SonidoDisparo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
-volume_db = -5.0
+bus = "Efectos"
 
 [node name="SonidoDisparoAmplio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
-volume_db = -5.0
+volume_db = 7.0
+bus = "Efectos"
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Attack3Setup" method="_on_AnimationPlayer_animation_finished"]

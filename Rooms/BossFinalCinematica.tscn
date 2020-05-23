@@ -97,7 +97,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0, 11.5, 13.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ -20.0, -20.0, -10.0 ]
+"values": [ -20.0, -20.0, -5.0 ]
 }
 tracks/7/type = "audio"
 tracks/7/path = NodePath("Musica2")
@@ -234,10 +234,10 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0, 19.1 ),
+"times": PoolRealArray( -0.1, 19.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ -20.0, -10.0 ]
+"values": [ -10.0, 0.0 ]
 }
 tracks/14/type = "value"
 tracks/14/path = NodePath("Gritos2:volume_db")
@@ -246,10 +246,10 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0, 19.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 11.3, 11.4, 19.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -20.0, -10.0 ]
+"values": [ -10.0, -4.08377, -8.0, 0.0 ]
 }
 tracks/15/type = "audio"
 tracks/15/path = NodePath("Discurso")
@@ -295,12 +295,16 @@ current = true
 [node name="Musica1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -20.0
+bus = "Musica"
 
 [node name="Musica2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
+volume_db = 1.26929
+bus = "Musica"
 
 [node name="Musica3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
+bus = "Musica"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 640.0
@@ -312,13 +316,16 @@ __meta__ = {
 
 [node name="Gritos1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
-volume_db = -20.0
+volume_db = -9.94792
+bus = "Efectos"
 
 [node name="Gritos2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = -20.0
+volume_db = -10.0
+bus = "Efectos"
 
 [node name="Discurso" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
-volume_db = -5.0
+volume_db = 6.0
+bus = "Efectos"
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

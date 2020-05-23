@@ -60,33 +60,53 @@ scroll_active = false
 
 [node name="Grito1" type="AudioStreamPlayer" parent="Gritos"]
 stream = ExtResource( 9 )
+volume_db = 10.0
+bus = "Efectos"
 
 [node name="Grito2" type="AudioStreamPlayer" parent="Gritos"]
 stream = ExtResource( 5 )
+volume_db = 20.0
+bus = "Efectos"
 
 [node name="Grito3" type="AudioStreamPlayer" parent="Gritos"]
 stream = ExtResource( 6 )
+volume_db = 15.0
+bus = "Efectos"
 
 [node name="Grito4" type="AudioStreamPlayer" parent="Gritos"]
 stream = ExtResource( 4 )
+volume_db = 15.0
+bus = "Efectos"
 
 [node name="Grito5" type="AudioStreamPlayer" parent="Gritos"]
 stream = ExtResource( 8 )
+volume_db = 15.0
+bus = "Efectos"
 
 [node name="Grito6" type="AudioStreamPlayer" parent="Gritos"]
 stream = ExtResource( 11 )
+volume_db = 10.0
+bus = "Efectos"
 
 [node name="Grito7" type="AudioStreamPlayer" parent="Gritos"]
 stream = ExtResource( 10 )
+volume_db = 5.0
+bus = "Efectos"
 
 [node name="Grito8" type="AudioStreamPlayer" parent="Gritos"]
 stream = ExtResource( 3 )
+volume_db = 7.0
+bus = "Efectos"
 
 [node name="Grito9" type="AudioStreamPlayer" parent="Gritos"]
 stream = ExtResource( 7 )
+volume_db = 15.0
+bus = "Efectos"
 
 [node name="Grito10" type="AudioStreamPlayer" parent="Gritos"]
 stream = ExtResource( 12 )
+bus = "Efectos"
 
 [node name="Grito11" type="AudioStreamPlayer" parent="Gritos"]
 stream = ExtResource( 12 )
+bus = "Efectos"

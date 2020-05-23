@@ -190,16 +190,19 @@ anims/anim_nivel_1_avispa_jefe_normal = SubResource( 4 )
 
 [node name="SonidoDisparo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
-volume_db = -5.0
+bus = "Efectos"
 
 [node name="SonidoCarga" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
-volume_db = -5.0
+volume_db = 5.0
+bus = "Efectos"
 
 [node name="SonidoDisparoAmplio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
-volume_db = -5.0
+volume_db = 10.0
+bus = "Efectos"
 
 [node name="SonidoAlerta" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
-volume_db = -5.0
+volume_db = 5.0
+bus = "Efectos"

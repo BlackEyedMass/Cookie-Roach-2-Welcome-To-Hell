@@ -55,6 +55,9 @@ func _on_timerBossSpawn_timeout():
 	$MusicaJefe.playing = true
 
 func _on_jefeNivel3_derrotado():
+	if find_node("Jugador") == null:
+		return
+	
 	var timerSalida = Timer.new()
 	timerSalida.autostart = true
 	timerSalida.wait_time = 6

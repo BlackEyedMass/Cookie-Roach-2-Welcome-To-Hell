@@ -32,7 +32,9 @@ boss = ExtResource( 3 )
 
 [node name="Musica" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -3.0
 autoplay = true
+bus = "Musica"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/anim_desvanecer_a_blanco = SubResource( 1 )

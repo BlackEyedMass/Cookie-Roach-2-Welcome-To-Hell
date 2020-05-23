@@ -223,6 +223,7 @@ tracks/13/keys = {
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 1 )
 hframes = 6
 frame = 2
@@ -351,6 +352,7 @@ scale_amount_random = 1.0
 color_ramp = SubResource( 1 )
 
 [node name="Explosion9" parent="Explosiones" instance=ExtResource( 3 )]
+emitting = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "anim_jefe_1_muerte"
@@ -358,4 +360,4 @@ anims/anim_jefe_1_muerte = SubResource( 2 )
 
 [node name="SonidoExplosiones" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = -5.0
+bus = "Efectos"

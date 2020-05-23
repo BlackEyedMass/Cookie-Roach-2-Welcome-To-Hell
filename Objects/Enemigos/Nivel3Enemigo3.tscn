@@ -120,9 +120,10 @@ anims/anim_nivel_3_enemigo_3_idle = SubResource( 4 )
 
 [node name="SonidoDespertar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -5.0
+bus = "Efectos"
 
 [node name="SonidoPasos" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = -10.0
+volume_db = 5.0
+bus = "Efectos"
 [connection signal="perder_vida" from="." to="StateMachine/Idle" method="_on_Nivel3Enemigo3_perder_vida"]

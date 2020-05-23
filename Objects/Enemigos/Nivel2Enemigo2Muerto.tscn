@@ -35,6 +35,7 @@ position = Vector2( -0.751038, 27.2876 )
 
 [node name="SonidoExplosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -5.0
+volume_db = 5.0
 autoplay = true
+bus = "Efectos"
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

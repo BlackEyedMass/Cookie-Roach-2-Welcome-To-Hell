@@ -14,8 +14,7 @@ var frases = [
 	"Wasted",
 	"F",
 	"Git gud",
-	"Compráte manos, manco de mierda",
-	"La madre que me pario pero que tonto que eres esque madre mía más tonto y no naces es que me cago en las cuatro farolas que alumbran las tumbas de tus putisimos muertos como puedes ser tan tonto es que madre mía"
+	"Compráte manos, manco de mierda"
 ]
 
 # Called when the node enters the scene tree for the first time.

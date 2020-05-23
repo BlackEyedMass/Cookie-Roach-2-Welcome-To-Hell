@@ -80,5 +80,5 @@ anims/anim_nivel_2_enemigo_3_cuerpo = SubResource( 3 )
 
 [node name="SonidoDisparo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = -5.0
+bus = "Efectos"
 [connection signal="timeout" from="TiempoEntreAtaques" to="." method="_on_TiempoEntreAtaques_timeout"]

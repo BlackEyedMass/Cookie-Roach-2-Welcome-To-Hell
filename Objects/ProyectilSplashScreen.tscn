@@ -20,5 +20,7 @@ shape = SubResource( 1 )
 
 [node name="SonidoAparicion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+volume_db = 7.0
 autoplay = true
+bus = "Efectos"
 [connection signal="area_entered" from="." to="." method="_on_ProyectilSplashScreen_area_entered"]

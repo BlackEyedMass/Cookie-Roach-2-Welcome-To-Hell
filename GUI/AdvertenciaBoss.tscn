@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/AdvertenciaBossControl.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/Efectos/sfx_alarm_loop1.wav" type="AudioStream" id=2]
-[ext_resource path="res://Fonts/TTF/BERNHC.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://Fonts/TTF/smalle.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
@@ -38,4 +38,4 @@ __meta__ = {
 
 [node name="SonidoAlarma" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = -5.0
+bus = "Efectos"

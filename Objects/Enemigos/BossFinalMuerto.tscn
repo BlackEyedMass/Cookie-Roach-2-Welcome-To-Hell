@@ -245,6 +245,7 @@ tracks/12/keys = {
 [node name="BossFinalMuerto" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 18.1818 )
 texture = ExtResource( 3 )
 hframes = 7
 frame = 6
@@ -274,24 +275,30 @@ position = Vector2( 9.07734, -10.8835 )
 
 [node name="Explosion9" parent="Sprite/Particulas" instance=ExtResource( 1 )]
 position = Vector2( -7.55649, -8.35323 )
+emitting = true
 
 [node name="Explosion10" parent="Sprite/Particulas" instance=ExtResource( 1 )]
 position = Vector2( 10.3559, 10.2225 )
+emitting = true
 
 [node name="Explosion11" parent="Sprite/Particulas" instance=ExtResource( 1 )]
 position = Vector2( -2.24912, -9.01665 )
+emitting = true
 
 [node name="Explosion12" parent="Sprite/Particulas" instance=ExtResource( 1 )]
 position = Vector2( -4.90277, 6.90544 )
+emitting = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "anim_jefe_final_muerte"
 anims/anim_jefe_final_muerte = SubResource( 1 )
 
 [node name="SonidosExplosiones" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = -5.0
+stream = ExtResource( 7 )
+bus = "Efectos"
 
 [node name="Gritos" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = 15.0
 autoplay = true
+bus = "Efectos"

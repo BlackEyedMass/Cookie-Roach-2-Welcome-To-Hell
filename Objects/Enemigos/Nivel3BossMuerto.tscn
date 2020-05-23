@@ -306,7 +306,8 @@ position = Vector2( 10.6011, -20.7849 )
 
 [node name="Explosion12" parent="Explosiones" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
+emitting = true
 
 [node name="SonidoExplosiones" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = -5.0
+bus = "Efectos"

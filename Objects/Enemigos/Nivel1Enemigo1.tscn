@@ -128,5 +128,6 @@ anims/anim_nivel_1_avispa_1_normal = SubResource( 3 )
 
 [node name="SonidoAtaque" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -10.0
+volume_db = 5.0
+bus = "Efectos"
 [connection signal="area_entered" from="." to="." method="_on_Nivel1Enemigo1_area_entered"]

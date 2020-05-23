@@ -172,6 +172,6 @@ anims/anim_nivel_2_enemigo_2_vuelo = SubResource( 4 )
 
 [node name="SonidoLengua" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -5.0
+bus = "Efectos"
 [connection signal="timeout" from="TiempoEntreAtaques" to="." method="_on_TiempoEntreAtaques_timeout"]
 [connection signal="lengua_destruida" from="Rotables/Lengua" to="." method="_on_Lengua_lengua_destruida"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/Seleccion_nivel_avispa_icono.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Menus/SeleccionNivelControl.gd" type="Script" id=2]
@@ -12,6 +12,21 @@
 [ext_resource path="res://Sprites/EspecificosDeNivel/SeleccionNivel/Seleccion_nivel_cucaracha_icono_nivel_final.png" type="Texture" id=10]
 [ext_resource path="res://Sounds/Efectos/sfx_nivel_seleccionado.wav" type="AudioStream" id=11]
 [ext_resource path="res://Fondos/SeleccionNivel/bg_seleccion_nivel.png" type="Texture" id=12]
+
+[sub_resource type="Animation" id=3]
+resource_name = "anim_cooldown"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:margin_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0.0, 360.0 ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim_nivel_seleccionado"
@@ -175,14 +190,17 @@ autoplay = true
 bus = "Musica"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "anim_nivel_seleccionado_standby"
+autoplay = "anim_cooldown"
+anims/anim_cooldown = SubResource( 3 )
 anims/anim_nivel_seleccionado = SubResource( 1 )
 anims/anim_nivel_seleccionado_standby = SubResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-[connection signal="pressed" from="BotonNivel1" to="." method="_on_BotonNivel1_pressed"]
-[connection signal="pressed" from="BotonNivel2" to="." method="_on_BotonNivel2_pressed"]
-[connection signal="pressed" from="BotonNivel3" to="." method="_on_BotonNivel3_pressed"]
-[connection signal="pressed" from="BotonNivel4" to="." method="_on_BotonNivel4_pressed"]
+volume_db = 5.0
+bus = "Efectos"
+[connection signal="button_down" from="BotonNivel1" to="." method="_on_BotonNivel1_button_down"]
+[connection signal="button_down" from="BotonNivel2" to="." method="_on_BotonNivel2_button_down"]
+[connection signal="button_down" from="BotonNivel3" to="." method="_on_BotonNivel3_button_down"]
+[connection signal="button_down" from="BotonNivel4" to="." method="_on_BotonNivel4_button_down"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

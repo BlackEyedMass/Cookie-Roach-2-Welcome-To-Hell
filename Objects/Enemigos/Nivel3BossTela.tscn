@@ -30,8 +30,9 @@ autostart = true
 
 [node name="Sonido" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -5.0
+volume_db = 3.0
 autoplay = true
+bus = "Efectos"
 
 [node name="CPUParticles2D" parent="." instance=ExtResource( 4 )]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

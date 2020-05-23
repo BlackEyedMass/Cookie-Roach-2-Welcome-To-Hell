@@ -76,5 +76,5 @@ anims/anim_nivel1_avispa_3_normal = SubResource( 3 )
 
 [node name="SonidoDisparo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -10.0
+bus = "Efectos"
 [connection signal="area_entered" from="." to="." method="_on_Nivel1Enemigo2_area_entered"]

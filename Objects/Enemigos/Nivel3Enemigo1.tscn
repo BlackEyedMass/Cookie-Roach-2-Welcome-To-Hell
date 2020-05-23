@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/StateMachine.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Nivel3Enemigo1/Nivel3Enemigo1EstadoIdle.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scripts/Nivel3Enemigo1/Nivel3Enemigo1Control.gd" type="Script" id=6]
 [ext_resource path="res://Objects/PowerUp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Enemigos/AranaMuerta.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sounds/Efectos/sfx_movement_jump16.wav" type="AudioStream" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.935, 11.924 )
@@ -75,4 +76,6 @@ anims/anim_nivel_3_enemigo_1_idle = SubResource( 2 )
 anims/anim_nivel_3_enemigo_1_pounce = SubResource( 3 )
 
 [node name="SonidoAtaque" type="AudioStreamPlayer" parent="."]
-volume_db = -5.0
+stream = ExtResource( 9 )
+volume_db = 5.0
+bus = "Efectos"

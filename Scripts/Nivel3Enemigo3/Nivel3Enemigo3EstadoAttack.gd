@@ -25,6 +25,9 @@ func process(delta):
 		var movimiento = posicionJugador * 13
 		fsm.padre.global_position += movimiento
 		
+		fsm.padre.look_at(instanciaJugador.global_position)
+		fsm.padre.rotation_degrees = fsm.padre.rotation_degrees + 180
+		
 		if distanciaAJugador.length() <= 75:
 			_crearTela()
 			fsm.padre.call_deferred('free')

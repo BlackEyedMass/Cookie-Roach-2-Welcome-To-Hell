@@ -8,7 +8,7 @@ var posicionObjetivo = Vector2()
 var movimiento = Vector2()
 
 func enter():
-	fsm.animador.play("anim_nivel_1_avispa_jefe_disparando")
+	fsm.padre.get_node("AnimationPlayer").play("anim_nivel_1_avispa_jefe_disparando")
 	
 	movimiento = fsm.padre.position
 	centroPantalla = get_viewport().get_visible_rect().size.y / 2

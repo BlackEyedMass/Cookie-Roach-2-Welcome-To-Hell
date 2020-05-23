@@ -112,15 +112,18 @@ anims/anim_nivel_4_jefe_neutral = SubResource( 4 )
 
 [node name="SonidoLaser1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
-volume_db = -5.0
+volume_db = 5.0
+bus = "Efectos"
 
 [node name="SonidoLaser2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
-volume_db = -5.0
+volume_db = 5.0
+bus = "Efectos"
 
 [node name="SonidoLaser3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
-volume_db = -5.0
+volume_db = 5.0
+bus = "Efectos"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2( 20.0589, -11.5937 )
